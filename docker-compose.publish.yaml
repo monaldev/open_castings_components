@@ -1,0 +1,18 @@
+web:
+  extends:
+    file: docker-compose.yml
+    service: web
+  ports:
+  - '9010:9010'
+  environment:
+  - NODE_ENV=development
+  - PORT=9010
+  command: >
+    sh -c '
+      if test -d node_modules;
+      then
+        echo node_modules_exists ;
+      fi &&
+      npm install &&
+      npm publish
+    '
