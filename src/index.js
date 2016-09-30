@@ -10,6 +10,10 @@ import {
 import {
   ocEditableHOC,
 } from './Generic/components';
+import {
+  FacebookFollowers,
+  TwitterFollowers,
+} from './Social/components';
 
 export {
   OpenCastingsTheme,
@@ -20,4 +24,6 @@ export {
   ProfileJobs,
   ProfileEditJobs,
   ocEditableHOC,
+  FacebookFollowers,
+  TwitterFollowers,
 };

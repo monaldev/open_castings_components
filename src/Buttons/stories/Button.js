@@ -8,24 +8,28 @@ import { stub } from 'sinon';
 import { Button } from '~/';
 
 storiesOf('Button', module)
-  .add('default view', () => {
-    const story = <Button onClick={ action('button clicked') }>Hello</Button>;
+  .addWithInfo(
+    'default view',
+    'Basic usage',
+    () => {
+      const story = <Button onClick={ action('button clicked') }>Hello</Button>;
 
-    specs(() => describe('Button', () => {
-      it('Should have the Hello label', () => {
-        const output = shallow(story);
-        expect(output.find('button').at(0).text()).to.equal('Hello');
-      });
-      it('Should call onClick when clicked', () => {
-        const actionSpy = { stubbed: stub() };
-        const actionStory = <Button onClick={ actionSpy.stubbed }>Hello</Button>;
-        const output = shallow(actionStory);
-        output.find('button').at(0).simulate('click');
-        expect(actionSpy.stubbed.called).to.equal(true);
-      });
-    }));
-    return story;
-  })
+      specs(() => describe('Button', () => {
+        it('Should have the Hello label', () => {
+          const output = shallow(story);
+          expect(output.find('button').at(0).text()).to.equal('Hello');
+        });
+        it('Should call onClick when clicked', () => {
+          const actionSpy = { stubbed: stub() };
+          const actionStory = <Button onClick={ actionSpy.stubbed }>Hello</Button>;
+          const output = shallow(actionStory);
+          output.find('button').at(0).simulate('click');
+          expect(actionSpy.stubbed.called).to.equal(true);
+        });
+      }));
+      return story;
+    }
+  )
   .add('some emojies as the text', () => (
     <Button>😀 😎 👍 💯</Button>
   ))
