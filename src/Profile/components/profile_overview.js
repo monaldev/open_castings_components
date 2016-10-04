@@ -10,14 +10,13 @@ import Eye from 'material-ui/svg-icons/image/remove-red-eye';
 import Email from 'material-ui/svg-icons/communication/email';
 import ProfileTitle from './profile_title';
 import ProfileJobs from './profile_jobs';
-
+import { FacebookFollowers, TwitterFollowers } from '../../Social/components';
 const ProfileOverview = ({
   data,
   editable,
   editMode,
   onChange,
   onSubmitChanges,
-  children,
 }) => (
   <div>
     <CardTitle
@@ -67,7 +66,8 @@ const ProfileOverview = ({
         display: 'flex',
       }}
     >
-      {children}
+      <FacebookFollowers profileId={data.socialProfiles.facebook} />
+      <TwitterFollowers profileId={data.socialProfiles.twitter} />
     </CardText>
   </div>
 );
@@ -77,6 +77,10 @@ ProfileOverview.defaultProps = {
     lName: '',
     jobs: [''],
     location: '',
+    socialProfiles: {
+      twitter: '',
+      facebook: '',
+    },
   },
   editable: false,
   editMode: false,

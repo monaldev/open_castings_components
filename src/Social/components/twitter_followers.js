@@ -15,16 +15,14 @@ class TwitterFollowers extends React.Component {
   }
   twitter() {
     $.ajax({
-      url: 'http://54.234.184.25/twitter/index.php',
-      dataType: 'json',
-      type: 'GET',
+      url: 'https://cdn.syndication.twimg.com/widgets/followbutton/info.json',
+      dataType: 'jsonp',
+      crossDomain: true,
       data: {
-        user: this.props.profileId,
+        screen_names: this.props.profileId,
       },
-      success: (data) => {
-        const followers = parseInt(data.followers, 10);
-        this.setState({ count: followers });
-      },
+    }).done((data) => {
+      this.setState({ count: data[0].followers_count });
     });
   }
   render() {

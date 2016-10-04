@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.2.1",
-    "@kadira/storybook": "^2.5.2",
+    "@kadira/storybook": "^2.20.1",
     "autoprefixer": "^6.5.0",
     "babel-cli": "^6.5.0",
     "babel-core": "^6.5.0",
