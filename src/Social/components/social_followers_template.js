@@ -15,6 +15,7 @@ const SocialFollowersTemplate = ({ socialIcon, count }) => (
       justifyContent: 'center',
       textTransform: 'uppercase',
       textAlign: 'center',
+      margin: '0 5px',
     }}
   >
     <div

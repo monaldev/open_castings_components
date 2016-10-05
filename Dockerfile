@@ -1,5 +1,5 @@
 #Choose a base image
-FROM node:5.10.1
+FROM node:6.0.0
 
 RUN npm set progress=false
 RUN npm install getstorybook -g
