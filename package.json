@@ -1,6 +1,6 @@
 {
   "name": "open-castings-components",
-  "version": "0.0.15",
+  "version": "0.0.17",
   "description": "Open Castings Component Library",
   "repository": {
     "type": "git",
@@ -54,16 +54,17 @@
     "sinon": "^1.17.3",
     "storybook-addon-specifications": "^1.0.15",
     "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "font-awesome": "^4.6.3"
   },
   "peerDependencies": {
     "react": "^0.14.7 || ^15.0.0",
     "material-ui": "^0.15.1",
-    "react-tap-event-plugin": "^1.0.0"
+    "react-tap-event-plugin": "^1.0.0",
+    "font-awesome": "^4.6.3"
   },
   "dependencies": {
     "babel-runtime": "^6.5.0",
-    "font-awesome": "^4.6.3",
     "jquery": "^3.1.1",
     "path": "^0.12.7"
   },

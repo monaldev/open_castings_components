@@ -1,8 +1,5 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
-import { specs, describe, it } from 'storybook-addon-specifications';
-import { shallow } from 'enzyme';
-import { expect } from 'chai';
 
 import { ProfileOverview } from '~/';
 import LoadMuiTheme from '~/.storybook/load_mui_theme';
@@ -27,6 +24,10 @@ storiesOf('ProfileOverview', module)
       lName: 'Ravikoti',
       jobs: ['Model', 'Actor'],
       location: 'Irvine, CA 92612',
+      socialProfiles: {
+        twitter: 'envato',
+        facebook: 'envato',
+      },
     };
     const story = (
       <ProfileOverview
@@ -36,14 +37,6 @@ storiesOf('ProfileOverview', module)
         <div>Test2</div>
       </ProfileOverview>
     );
-
-    specs(() => describe('ProfileOverview: public view', () => {
-      it('Should have the Hello label', () => {
-        const output = shallow(story);
-        expect(output.find('button').at(0).text()).to.equal('Hello');
-      });
-    }));
-
     return story;
   })
   .add('private view', () => (
@@ -53,6 +46,10 @@ storiesOf('ProfileOverview', module)
         lName: 'Ravikoti',
         jobs: ['Model', 'Actor'],
         location: 'Irvine, CA 92612',
+        socialProfiles: {
+          twitter: 'envato',
+          facebook: 'envato',
+        },
       }}
       editable
       onToggleEditMode={linkTo('ProfileOverview', 'private view - edit mode')}

@@ -1,29 +1,5 @@
-import { Button } from './Buttons/components';
-import OpenCastingsTheme from './open_castings_theme';
-import {
-  ProfileImage,
-  ProfileOverview,
-  ProfileTitle,
-  ProfileJobs,
-  ProfileEditJobs,
-} from './Profile/components';
-import {
-  ocEditableHOC,
-} from './Generic/components';
-import {
-  FacebookFollowers,
-  TwitterFollowers,
-} from './Social/components';
-
-export {
-  OpenCastingsTheme,
-  Button,
-  ProfileImage,
-  ProfileOverview,
-  ProfileTitle,
-  ProfileJobs,
-  ProfileEditJobs,
-  ocEditableHOC,
-  FacebookFollowers,
-  TwitterFollowers,
-};
+export * from './Buttons/components';
+export { default as OpenCastingsTheme } from './open_castings_theme';
+export * from './Profile/components';
+export * from './Generic/components';
+export * from './Social/components';
