@@ -1,13 +1,6 @@
-import ProfileImage from './profile_image';
-import ProfileOverview from './profile_overview';
-import ProfileTitle from './profile_title';
-import ProfileJobs from './profile_jobs';
-import ProfileEditJobs from './profile_edit_jobs';
-
-export {
-  ProfileImage,
-  ProfileOverview,
-  ProfileTitle,
-  ProfileJobs,
-  ProfileEditJobs,
-};
+export { default as ProfileImage } from './profile_image';
+export { default as ProfileOverview } from './profile_overview';
+export { default as ProfileTitle } from './profile_title';
+export { default as ProfileJobs } from './profile_jobs';
+export { default as ProfileEditJobs } from './profile_edit_jobs';
+export { default as ProfileBasicStats } from './profile_basic_stats';

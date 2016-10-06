@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
-import { ProfileOverview } from '~/';
+import { ProfileBasicStats } from '~/';
 import LoadMuiTheme from '~/.storybook/load_mui_theme';
 
-storiesOf('ProfileOverview', module)
+storiesOf('ProfileBasicStats', module)
 .addDecorator(story => (
     <LoadMuiTheme>
       <div
@@ -33,7 +33,7 @@ storiesOf('ProfileOverview', module)
       heightCm: 180,
     };
     const story = (
-      <ProfileOverview
+      <ProfileBasicStats
         data={data}
       />
     );

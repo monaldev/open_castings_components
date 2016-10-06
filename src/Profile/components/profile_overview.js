@@ -4,57 +4,37 @@ import {
   Divider,
   CardTitle,
   CardText,
-  CardActions,
 } from 'material-ui';
-import Eye from 'material-ui/svg-icons/image/remove-red-eye';
 import Email from 'material-ui/svg-icons/communication/email';
-import ProfileTitle from './profile_title';
 import ProfileJobs from './profile_jobs';
 import { FacebookFollowers, TwitterFollowers } from '../../Social/components';
+
 const ProfileOverview = ({
   data,
-  editable,
-  editMode,
-  onChange,
-  onSubmitChanges,
 }) => (
   <div>
     <CardTitle
-      title={
-        <ProfileTitle
-          editable={editable}
-          data={{ fName: data.fName, lName: data.lName }}
-          onSubmitEdit={onSubmitChanges}
-          onChange={(changedData) => {
-            const newData = { ...data, ...changedData };
-            onChange(newData);
-          }}
-          editMode={editMode}
-        />
-      }
-      subtitle={
-        <ProfileJobs
-          editable={editable}
-          data={data.jobs}
-          onSubmitEdit={onSubmitChanges}
-          onChange={(changedData) => {
-            const newData = { ...data, jobs: changedData };
-            onChange(newData);
-          }}
-          editMode={editMode}
-        />
-      }
+      title={`${data.fName} ${data.lName}`}
     />
-    <CardText>
-      {data.location}
-    </CardText>
-    <CardActions>
-      <RaisedButton
-        label={editable ? 'View Profile' : 'Contact Me'}
-        secondary
-        icon={editable ? <Eye /> : <Email />}
+    <CardText
+      style={{
+        paddingTop: '0',
+      }}
+    >
+      <ProfileJobs
+        data={data.jobs}
       />
-    </CardActions>
+      <div>{data.location}</div>
+      <div>Nonunion</div>
+      <RaisedButton
+        label={'Contact Me'}
+        style={{
+          marginTop: '1em',
+        }}
+        secondary
+        icon={<Email />}
+      />
+    </CardText>
     <Divider
       style={{
         width: '90%',
@@ -82,8 +62,6 @@ ProfileOverview.defaultProps = {
       facebook: '',
     },
   },
-  editable: false,
-  editMode: false,
 };
 ProfileOverview.propTypes = {
   data: React.PropTypes.shape(
@@ -92,13 +70,9 @@ ProfileOverview.propTypes = {
       lName: React.PropTypes.string,
       jobs: React.PropTypes.arrayOf(React.PropTypes.string),
       location: React.PropTypes.string,
+      socialProfiles: React.PropTypes.object,
     }
   ).isRequired,
-  editable: React.PropTypes.bool,
-  editMode: React.PropTypes.bool,
-  onChange: React.PropTypes.func,
-  onToggleEditMode: React.PropTypes.func,
-  onSubmitChanges: React.PropTypes.func,
   children: React.PropTypes.node,
 };
 

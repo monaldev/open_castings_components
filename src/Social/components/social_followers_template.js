@@ -4,18 +4,18 @@ function kFormatter(num) {
   return num > 999 ? `${(num / 1000).toFixed(1)}k` : num;
 }
 
-const SocialFollowersTemplate = ({ socialIcon, count }) => (
+const SocialFollowersTemplate = ({ socialIcon, count, width = 40 }) => (
   <div
     style={{
       padding: '0',
-      width: '50px',
+      minWidth: `${width}px`,
       fontSize: '11px',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       textTransform: 'uppercase',
       textAlign: 'center',
-      margin: '0 5px',
+      margin: `0 ${width * 0.1}px`,
     }}
   >
     <div
@@ -23,16 +23,16 @@ const SocialFollowersTemplate = ({ socialIcon, count }) => (
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        width: '40px',
-        height: '40px',
+        width: `${width * 0.8}px`,
+        height: `${width * 0.8}px`,
         padding: '0px',
         textDecoration: 'none',
         textAlign: 'center',
         color: '#fff',
-        fontSize: '25px',
+        fontSize: `${width * 0.5}px`,
         fontWeight: 'normal',
         background: '#283445',
-        borderRadius: '27px',
+        borderRadius: `${width * 0.8}px`,
         margin: 'auto',
       }}
     >
@@ -54,7 +54,7 @@ const SocialFollowersTemplate = ({ socialIcon, count }) => (
       >
         <div
           style={{
-            fontSize: '12px',
+            fontSize: `${width * 0.3}px`,
           }}
         >
           {kFormatter(count)}
@@ -81,6 +81,7 @@ const SocialFollowersTemplate = ({ socialIcon, count }) => (
 SocialFollowersTemplate.propTypes = {
   socialIcon: React.PropTypes.object,
   count: React.PropTypes.number,
+  width: React.PropTypes.string,
 };
 
 export default SocialFollowersTemplate;

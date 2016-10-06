@@ -2,7 +2,10 @@ import React from 'react';
 import {
   Popover,
   PopoverAnimationVertical,
+  FlatButton,
+  IconButton,
 } from 'material-ui';
+import Edit from 'material-ui/svg-icons/editor/mode-edit';
 
 export default function (NormalComponent, EditComponent) {
   class OCEditableHOC extends React.Component {
@@ -20,39 +23,69 @@ export default function (NormalComponent, EditComponent) {
     }
     render() {
       const isEditMode = this.state.editMode;
-      const { editMode, onSubmitEdit, onChange, ...restProps } = this.props;
+      const { onSubmitEdit, onChange, ...restProps } = this.props;
       return (
         <div
-          onClick={() => this.setState({ editMode: true })}
-          onMouseEnter={() => this.setState({ hovered: true })}
-          onMouseLeave={() => this.setState({ hovered: false })}
           ref="editContainer"
         >
           <div
             style={{
-              backgroundColor: this.state.hovered ? 'lightgray' : 'transparent',
-              cursor: 'pointer',
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'space-between',
             }}
           >
             <NormalComponent
               {...restProps}
             />
+            <IconButton
+              onTouchTap={() => this.setState({ editMode: true })}
+            >
+              <Edit />
+            </IconButton>
           </div>
           <Popover
             open={isEditMode}
             anchorEl={this.refs.editContainer}
-            anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
+            anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
             targetOrigin={{ horizontal: 'left', vertical: 'top' }}
             animation={PopoverAnimationVertical}
             style={{
-              padding: '1em',
+              padding: '0',
+              minWidth: '300px',
             }}
           >
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center',
+                position: 'relative',
+                height: '36px',
+                paddingTop: '1em',
+              }}
+            >
+              <span
+                style={{
+                  flex: 1,
+                }}
+              >
+                Edit Info
+              </span>
+              <FlatButton
+                label="Done"
+                secondary
+                onTouchTap={() => {
+                  onSubmitEdit();
+                  this.setState({ editMode: false });
+                }}
+              />
+            </div>
             <EditComponent
               {...restProps}
               onChange={onChange}
-              onSubmitEdit={onSubmitEdit}
-              onCancelEditMode={() => this.setState({ editMode: false })}
             />
           </Popover>
         </div>
