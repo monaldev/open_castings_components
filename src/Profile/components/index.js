@@ -4,3 +4,4 @@ export { default as ProfileTitle } from './profile_title';
 export { default as ProfileJobs } from './profile_jobs';
 export { default as ProfileEditJobs } from './profile_edit_jobs';
 export { default as ProfileBasicStats } from './profile_basic_stats';
+export { default as ProfileSkills } from './profile_skills';

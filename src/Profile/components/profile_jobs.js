@@ -5,7 +5,7 @@ import ProfileEditJobs from './profile_edit_jobs';
 
 const Jobs = ({ jobs }) => (
   <div style={{ display: 'flex' }}>
-    {jobs.map((job, index) => `${job}${index < jobs.length - 1 ? ' / ' : ''}`)}
+    {jobs.join(' / ')}
   </div>
 );
 Jobs.propTypes = {
