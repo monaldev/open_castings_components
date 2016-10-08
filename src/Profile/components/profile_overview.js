@@ -8,6 +8,11 @@ import {
 import Email from 'material-ui/svg-icons/communication/email';
 import ProfileJobs from './profile_jobs';
 import { FacebookFollowers, TwitterFollowers } from '../../Social/components';
+const styles = {
+  actorData: {
+    paddingTop: '5',
+  },
+};
 
 const ProfileOverview = ({
   data,
@@ -24,8 +29,16 @@ const ProfileOverview = ({
       <ProfileJobs
         data={data.jobs}
       />
-      <div>{data.location}</div>
-      <div>Nonunion</div>
+      <div
+        style={styles.actorData}
+      >
+        {data.location}
+      </div>
+      <div
+        style={styles.actorData}
+      >
+        Nonunion
+      </div>
       <RaisedButton
         label={'Contact Me'}
         style={{

@@ -20,7 +20,7 @@ const lbsFromKgs = (kg) => {
 
 const styles = {
   statItem: {
-    padding: '2px 0',
+    padding: '5px 0',
   },
 };
 
