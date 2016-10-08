@@ -1,5 +1,5 @@
 import React from 'react';
-import { ocEditableHOC } from '~/Generic/components';
+import { ocEditableHOC } from '../../Generic/components';
 import Edit from 'material-ui/svg-icons/editor/mode-edit';
 import ProfileEditJobs from './profile_edit_jobs';
 

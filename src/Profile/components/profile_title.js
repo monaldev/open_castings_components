@@ -4,7 +4,7 @@ import {
   FlatButton,
   RaisedButton,
 } from 'material-ui';
-import { ocEditableHOC } from '~/Generic/components';
+import { ocEditableHOC } from '../../Generic/components';
 import Edit from 'material-ui/svg-icons/editor/mode-edit';
 
 const Title = ({ title }) => (

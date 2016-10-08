@@ -1,7 +1,25 @@
-# Contributing to Open Castings Compoents Component
+## Prerequisites
 
-We welcome your help to make this component better. This document will help to streamline the contributing process and save everyone's precious time.
+[Node.js](http://nodejs.org/) >= v4 must be installed.
 
-## Development Setup
+## Installation
 
-This component has been setup with [React CDK](https://github.com/kadirahq/react-cdk). Refer [React CDK documentation](https://github.com/kadirahq/react-cdk)) to get started with the development.
+- Running `npm install` in the components's root directory will install everything you need for development.
+
+## Demo Development Server
+
+- `npm start` will run a development server with the component's demo app at [http://localhost:3000](http://localhost:3000) with hot module reloading.
+
+## Running Tests
+
+- `npm test` will run the tests once.
+
+- `npm run test:coverage` will run the tests and produce a coverage report in `coverage/`.
+
+- `npm run test:watch` will run the tests on every change.
+
+## Building
+
+- `npm run build` will build the component for publishing to npm and also bundle the demo app.
+
+- `npm run clean` will delete built resources.

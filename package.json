@@ -1,23 +1,45 @@
 {
-  "name": "open-castings-components",
-  "version": "0.0.17",
-  "description": "Open Castings Component Library",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/WilliamTaorminaOrganization/open-castings-components"
-  },
-  "license": "MIT",
+  "name": "open_castings_components",
+  "version": "1.0.0",
+  "description": "open_castings_components React component",
+  "main": "lib/index.js",
+  "jsnext:main": "es/index.js",
+  "module": "es/index.js",
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd"
+  ],
   "scripts": {
+    "build": "nwb build-react-component",
+    "clean": "nwb clean-module && npm clean-demo",
+    "start": "nwb serve-react-demo",
+    "test": "nwb test",
+    "test:coverage": "nwb test --coverage",
+    "test:watch": "nwb test --server",
     "prepublish": ". ./.scripts/prepublish.sh",
     "lint": "eslint src",
     "lintfix": "eslint src --fix",
-    "testonly": "mocha --require .scripts/mocha_runner src/**/tests/**/*.js",
-    "test": "npm run lint && npm run testonly",
-    "test-watch": "npm run testonly -- --watch --watch-extensions js",
     "storybook": "start-storybook -p 9010",
     "publish-storybook": "bash .scripts/publish_storybook.sh"
   },
+  "dependencies": {
+    "babel-runtime": "^6.5.0",
+    "jquery": "^3.1.1",
+    "mathjs": "^3.5.3",
+    "path": "^0.12.7"
+  },
+  "peerDependencies": {
+    "react": "^0.14.7 || ^15.0.0",
+    "material-ui": "^0.15.1",
+    "react-tap-event-plugin": "^1.0.0",
+    "font-awesome": "^4.6.3"
+  },
   "devDependencies": {
+    "nwb": "0.12.x",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
     "@kadira/react-storybook-addon-info": "^3.2.1",
     "@kadira/storybook": "^2.20.1",
     "autoprefixer": "^6.5.0",
@@ -47,9 +69,7 @@
     "mocha": "^2.4.5",
     "path": "^0.12.7",
     "precss": "^1.4.0",
-    "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
-    "react-dom": "^15.0.0",
     "react-tap-event-plugin": "^1.0.0",
     "sinon": "^1.17.3",
     "storybook-addon-specifications": "^1.0.15",
@@ -57,20 +77,11 @@
     "url-loader": "^0.5.7",
     "font-awesome": "^4.6.3"
   },
-  "peerDependencies": {
-    "react": "^0.14.7 || ^15.0.0",
-    "material-ui": "^0.15.1",
-    "react-tap-event-plugin": "^1.0.0",
-    "font-awesome": "^4.6.3"
-  },
-  "dependencies": {
-    "babel-runtime": "^6.5.0",
-    "jquery": "^3.1.1",
-    "mathjs": "^3.5.3",
-    "path": "^0.12.7"
-  },
-  "main": "dist/index.js",
-  "engines": {
-    "npm": "^3.0.0"
-  }
+  "author": "Rohit Ravikoti",
+  "homepage": "",
+  "license": "MIT",
+  "repository": "",
+  "keywords": [
+    "open-castings-components"
+  ]
 }
