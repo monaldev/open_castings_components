@@ -5,8 +5,10 @@ module.exports = {
     umd: {
       global: 'OpenCastingsComponents',
       externals: {
-        react: 'React'
-      }
-    }
-  }
-}
+        react: 'React',
+        'material-ui': 'MaterialUI',
+        'font-awesome': 'FontAwesome',
+      },
+    },
+  },
+};

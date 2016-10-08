@@ -1,6 +1,6 @@
 {
   "name": "open_castings_components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "open_castings_components React component",
   "main": "lib/index.js",
   "jsnext:main": "es/index.js",
