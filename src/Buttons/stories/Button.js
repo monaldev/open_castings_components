@@ -7,6 +7,8 @@ import { stub } from 'sinon';
 
 import { Button } from '~/';
 
+
+
 storiesOf('Button', module)
   .addWithInfo(
     'default view',
