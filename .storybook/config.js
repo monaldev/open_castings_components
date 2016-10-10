@@ -6,7 +6,7 @@ setAddon(infoAddon);
 //injectTapEventPlugin();
 
 function loadStories() {
-  require('../src/Buttons/stories');
+  require('../src/index.storybook.js');
 }
 
 configure(loadStories, module);
