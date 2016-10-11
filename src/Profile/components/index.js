@@ -8,3 +8,4 @@ export { default as ProfileEducationTraining } from './profile_education_trainin
 export { default as ProfileEducationTrainingItem } from './profile_education_training_item';
 export { default as ProfileSkills } from './profile_skills';
 export { default as ProfileMorePhotos } from './profile_more_photos';
+export { default as ProfileMorePhotosItem } from './profile_more_photos_item';

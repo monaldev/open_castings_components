@@ -14,7 +14,7 @@ storiesOf('ProfileMorePhotos', module)
                 position: 'relative',
         }}
         >
-    {story() }
+        {story() }
         </div>
     </LoadMuiTheme>
     ))

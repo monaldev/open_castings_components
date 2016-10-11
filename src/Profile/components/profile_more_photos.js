@@ -2,6 +2,7 @@
  * Created by nsnik on 10/10/2016.
  */
 import React from 'react';
+import ProfileMorePhotosItem from './profile_more_photos_item';
 
 const ProfileMorePhotosStyles = {
     border: '1px solid #eee',
@@ -12,16 +13,27 @@ const ProfileMorePhotosStyles = {
     height: '96px',
     width: '96px',
 };
-
-const ProfileMorePhotos = ({ data, style = {} }) => (
-    <div>
-    {
-        data.map((item, index) => (
-            <img src={item} style={{ ...ProfileMorePhotosStyles, ...style }}  />
-        ))
+class ProfileMorePhotos extends React.Component {
+    constructor(props) {
+        super(props);
     }
-    </div>
-);
+
+    getChildren(){
+        return React.Children.toArray(this.props.children);
+    }
+
+    render() {
+        return (
+            <div>
+                {
+                    this.props.data.map((item, index) => (
+                        <ProfileMorePhotosItem data = {item}  style={{ ...ProfileMorePhotosStyles, ...this.props.style }}  />
+                    ))
+                }
+            </div>
+        )
+    }
+}
 
 ProfileMorePhotos.propTypes = {
     data: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
