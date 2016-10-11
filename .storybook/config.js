@@ -1,12 +1,12 @@
 import { configure, setAddon } from '@kadira/storybook';
 import infoAddon from '@kadira/react-storybook-addon-info';
-//import injectTapEventPlugin from 'react-tap-event-plugin';
+// import injectTapEventPlugin from 'react-tap-event-plugin';
 
 setAddon(infoAddon);
-//injectTapEventPlugin();
+// injectTapEventPlugin();
 
 function loadStories() {
-  require('../src/Buttons/stories');
+  require('../src/index.storybook');
 }
 
 configure(loadStories, module);
