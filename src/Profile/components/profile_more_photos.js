@@ -15,7 +15,17 @@ const ProfileMorePhotosStyles = {
 };
 class ProfileMorePhotos extends React.Component {
     constructor(props) {
-        super(props);
+        super(props) ;
+    }
+
+    componentDidMount()  {
+        //console.log(Array.isArray(this.props.children)); // => false
+
+        // warning: yields 5 for length of the string 'hello', not 1 for the
+        // length of the non-existent array wrapper!
+        console.log('componentDidMount');
+        debugger;
+        console.log('this.props.children ' + React.Children.toArray(this.props.children));
     }
 
     getChildren(){
@@ -23,11 +33,12 @@ class ProfileMorePhotos extends React.Component {
     }
 
     render() {
+        console.log('render this.props.children ' + React.Children.toArray(this.props.children));
         return (
             <div>
                 {
                     this.props.data.map((item, index) => (
-                        <ProfileMorePhotosItem data = {item}  style={{ ...ProfileMorePhotosStyles, ...this.props.style }}  />
+                        <ProfileMorePhotosItem data = {item}  style={{ ...ProfileMorePhotosStyles, ...this.props.style }}   />
                     ))
                 }
             </div>
