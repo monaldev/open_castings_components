@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
-import { ocMediaCarousel } from '~/';
+import { ocMediaCarousel, ProfileMorePhotos } from '~/';
 import LoadMuiTheme from '~/.storybook/load_mui_theme';
 
 storiesOf('ocMediaCarousel', module)
@@ -19,10 +19,21 @@ storiesOf('ocMediaCarousel', module)
     </LoadMuiTheme>
   ))
   .add('Carousel', () => {
+    const style = {
+      margin: '4px',
+      backgroundColor: 'transparent',
+    };
+    const data = [
+      'https://s2.graphiq.com/sites/default/files/stories/t2/tiny_cat_12573_8950.jpg',
+      'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg',
+      'https://www.petdrugsonline.co.uk/images/page-headers/cats-master-header',
+    ];
+
+    const profilePhotos = (<ProfileMorePhotos data={data} style={style} />);
+debugger;
     const story = (
       <ocMediaCarousel style={{ width: '100%' }} numElementsPerPanel={5}>
-        <img src="http://r.ddmcdn.com/s_f/o_1/APL/uploads/2014/04/1394744078947pembcorg.jpg" alt="" />
-        <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQOFRuVmGgjYzZ7gJsZpWlGf5YR2nALoSpiRIty2EpbdkwBIx-1OQ" alt="" />
+        {profilePhotos}
       </ocMediaCarousel>
     );
 
