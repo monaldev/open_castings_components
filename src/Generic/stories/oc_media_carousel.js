@@ -4,6 +4,16 @@ import { storiesOf } from '@kadira/storybook';
 import { OCMediaCarousel, ProfileMorePhotos } from '~/';
 import LoadMuiTheme from '~/.storybook/load_mui_theme';
 
+const ProfileMorePhotosStyles = {
+  border: '1px solid #eee',
+  borderRadius: 3,
+  backgroundColor: '#FFFFFF',
+  cursor: 'pointer',
+  padding: '3px 10px',
+  height: '96px',
+  width: '96px',
+};
+
 storiesOf('OCMediaCarousel', module)
   .addDecorator(story => (
     <LoadMuiTheme>
@@ -29,13 +39,16 @@ storiesOf('OCMediaCarousel', module)
       'https://www.petdrugsonline.co.uk/images/page-headers/cats-master-header',
     ];
 
-    const profilePhotos = (<ProfileMorePhotos data={data} style={style} />);
+    const profilePhotos = data.map((item, index) => (
+      <img src={item} style={{ ...ProfileMorePhotosStyles, ...style }} />
+    ));
 
     const story = (
       <OCMediaCarousel
-        children={[1, 2, 3, 4, 5, 6, 7, 8]}
+        children={profilePhotos}
         style={{ width: '100%' }}
-        numElementsPerPanel={3}
+        numElementsPerPanel={2}
+        title={data.length + ' Items'}
       />
     );
 

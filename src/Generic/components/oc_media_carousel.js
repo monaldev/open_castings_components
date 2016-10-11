@@ -37,7 +37,7 @@ class OCMediaCarousel extends React.Component {
         fontSize: '25px',
         cursor: 'pointer',
       };
-      pages.push(<li onClick={this.changePage} value={i} style={dotStyle}></li>);
+      pages.push(<li key={i} onClick={this.changePage} value={i} style={dotStyle}></li>);
     }
     let dots = (
       <ul style={styles.list}>
@@ -47,6 +47,7 @@ class OCMediaCarousel extends React.Component {
 
     return (
       <div style={style}>
+        <span>{this.props.title}</span>
         <div>
           {dots}
         </div>
@@ -62,8 +63,9 @@ class OCMediaCarousel extends React.Component {
 
 OCMediaCarousel.propTypes = {
   style: React.PropTypes.object,
-  children: React.PropTypes.object,
+  children: React.PropTypes.arrayOf(React.PropTypes.element),
   numElementsPerPanel: React.PropTypes.number,
+  title: React.PropTypes.string,
 };
 
 export default OCMediaCarousel;
