@@ -1,17 +1,9 @@
 import React from 'react';
 
 const styles = {
-  dot: {
-    float: 'left',
-    color: 'pink',
-    marginRight: '20px',
-    fontSize: '25px',
-    cursor: 'pointer',
-  },
   list: {
     width: '50%',
     margin: 'auto',
-    position: 'relative',
   },
 };
 
@@ -22,23 +14,47 @@ class OCMediaCarousel extends React.Component {
     this.state = {
       page: 0,
     };
+    this.changePage = this.changePage.bind(this);
   }
   changePage(e) {
     this.setState({ page: e.target.value });
   }
   render() {
-    const { style } = this.props;
-
+    const { style, children, numElementsPerPanel } = this.props;
+    const startIdx = (this.state.page * numElementsPerPanel);
+    let childrenToShow = [];
+    let i;
+    let dotStyle;
+    for (i = 0; i < numElementsPerPanel; i++) {
+      childrenToShow.push(children[startIdx + i]);
+    }
+    let pages = [];
+    for (i = 0; i < Math.ceil(children.length / numElementsPerPanel); i++) {
+      dotStyle = {
+        float: 'left',
+        color: i === this.state.page ? 'pink' : 'grey',
+        marginRight: '20px',
+        fontSize: '25px',
+        cursor: 'pointer',
+      };
+      pages.push(<li onClick={this.changePage} value={i} style={dotStyle}></li>);
+    }
     let dots = (
       <ul style={styles.list}>
-        <li style={styles.dot} value={2} onClick={this.changePage}></li>
+        {pages}
       </ul>
     );
 
     return (
       <div style={style}>
-        {dots}
-        {this.props.children}
+        <div>
+          {dots}
+        </div>
+        <br />
+        <br />
+        <div>
+          {childrenToShow}
+        </div>
       </div>
     );
   }
@@ -46,7 +62,7 @@ class OCMediaCarousel extends React.Component {
 
 OCMediaCarousel.propTypes = {
   style: React.PropTypes.object,
-  children: React.PropTypes.string,
+  children: React.PropTypes.object,
   numElementsPerPanel: React.PropTypes.number,
 };
 

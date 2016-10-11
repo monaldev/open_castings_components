@@ -32,7 +32,11 @@ storiesOf('OCMediaCarousel', module)
     const profilePhotos = (<ProfileMorePhotos data={data} style={style} />);
 
     const story = (
-      <OCMediaCarousel style={{ width: '100%' }} />
+      <OCMediaCarousel
+        children={[1, 2, 3, 4, 5, 6, 7, 8]}
+        style={{ width: '100%' }}
+        numElementsPerPanel={3}
+      />
     );
 
     return story;
