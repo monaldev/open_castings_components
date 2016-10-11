@@ -1,7 +1,7 @@
 import ocEditableHOC from './oc_editable_hoc';
-import ocMediaCarousel from './oc_media_carousel';
+import OCMediaCarousel from './oc_media_carousel';
 
 export {
   ocEditableHOC,
-  ocMediaCarousel,
+  OCMediaCarousel,
 };

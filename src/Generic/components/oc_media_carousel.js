@@ -1,47 +1,53 @@
 import React from 'react';
 
-// const styles = {
-//   dot: {
-//     float: 'left',
-//     color: 'grey',
-//   },
-//   dotActive: {
-//     float: 'left',
-//     color: 'pink',
-//   },
-// };
+const styles = {
+  dot: {
+    float: 'left',
+    color: 'pink',
+    marginRight: '20px',
+    fontSize: '25px',
+    cursor: 'pointer',
+  },
+  list: {
+    width: '50%',
+    margin: 'auto',
+    position: 'relative',
+  },
+};
 
-export default function () {
-  class OCMediaCarousel extends React.Component {
-    constructor(props) {
-      super(props);
-    }
-    changePage (e) {
+class OCMediaCarousel extends React.Component {
+  constructor(props) {
+    super(props);
 
-    }
-    render() {
-      const { style } = this.props;
-      // let components;
-      // let dots = (
-      //   <ul>
-      //     <li><a href="#" /></li>
-      //   </ul>
-      // );
-
-      return (
-        <div style={style}>
-          // dots
-          // <div>
-          //   components
-          // </div>
-        </div>
-      );
-    }
+    this.state = {
+      page: 0,
+    };
   }
-  OCMediaCarousel.propTypes = {
-    style: React.PropTypes.object,
-    children: React.PropTypes.string,
-    numElementsPerPanel: React.PropTypes.number,
-  };
-  return OCMediaCarousel;
+  changePage(e) {
+    this.setState({ page: e.target.value });
+  }
+  render() {
+    const { style } = this.props;
+
+    let dots = (
+      <ul style={styles.list}>
+        <li style={styles.dot} value={2} onClick={this.changePage}></li>
+      </ul>
+    );
+
+    return (
+      <div style={style}>
+        {dots}
+        {this.props.children}
+      </div>
+    );
+  }
 }
+
+OCMediaCarousel.propTypes = {
+  style: React.PropTypes.object,
+  children: React.PropTypes.string,
+  numElementsPerPanel: React.PropTypes.number,
+};
+
+export default OCMediaCarousel;

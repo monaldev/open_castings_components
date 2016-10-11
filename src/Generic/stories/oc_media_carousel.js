@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
-import { ocMediaCarousel, ProfileMorePhotos } from '~/';
+import { OCMediaCarousel, ProfileMorePhotos } from '~/';
 import LoadMuiTheme from '~/.storybook/load_mui_theme';
 
-storiesOf('ocMediaCarousel', module)
+storiesOf('OCMediaCarousel', module)
   .addDecorator(story => (
     <LoadMuiTheme>
       <div
@@ -30,11 +30,9 @@ storiesOf('ocMediaCarousel', module)
     ];
 
     const profilePhotos = (<ProfileMorePhotos data={data} style={style} />);
-debugger;
+
     const story = (
-      <ocMediaCarousel style={{ width: '100%' }} numElementsPerPanel={5}>
-        {profilePhotos}
-      </ocMediaCarousel>
+      <OCMediaCarousel style={{ width: '100%' }} />
     );
 
     return story;
