@@ -1,6 +1,6 @@
 import React from 'react';
-import {storiesOf} from '@kadira/storybook';
-import {ProfileMorePhotos} from '~/';
+import { storiesOf } from '@kadira/storybook';
+import { ProfileMorePhotos } from '~/';
 import LoadMuiTheme from '~/.storybook/load_mui_theme.js';
 
 storiesOf('ProfileMorePhotos', module)
@@ -15,7 +15,7 @@ storiesOf('ProfileMorePhotos', module)
       >
         {story() }
       </div>
-    </LoadMuiTheme >
+    </LoadMuiTheme>
   ))
   .add('preview', () => {
     const style = {
