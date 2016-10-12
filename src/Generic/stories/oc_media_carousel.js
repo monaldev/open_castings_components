@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
-import { OCMediaCarousel, ProfileMorePhotos } from '~/';
+import { OCMediaCarousel } from '~/';
 import LoadMuiTheme from '~/.storybook/load_mui_theme';
 
 const ProfileMorePhotosStyles = {
@@ -40,7 +40,12 @@ storiesOf('OCMediaCarousel', module)
     ];
 
     const profilePhotos = data.map((item, index) => (
-      <img src={item} style={{ ...ProfileMorePhotosStyles, ...style }} />
+      <img
+        src={item}
+        key={index}
+        style={{ ...ProfileMorePhotosStyles, ...style }}
+        role="presentation"
+      />
     ));
 
     const story = (
