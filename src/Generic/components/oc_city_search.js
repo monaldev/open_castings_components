@@ -59,7 +59,6 @@ class ProductionDetailsForm extends React.Component {
       <AutoComplete
         {...this.props}
         id="autocomplete"
-        hintText="Enter a city"
         onUpdateInput={this.updateInput.bind(this)}
         floatingLabelText="Enter a city, state"
         floatingLabelFixed
