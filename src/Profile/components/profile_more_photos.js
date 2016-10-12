@@ -19,11 +19,11 @@ class ProfileMorePhotos extends React.Component {
   }
 
   render() {
-    let numElementsPerPanel = this.props.numElementsPerPanel || 3;
-    const children = this.props.data.map((item, index) => (
+    const numElementsPerPanel = this.props.numElementsPerPanel || 3;
+    const childrenNodes = this.props.data.map((item, index) => (
       <img
         src={item}
-        style={{ ...ProfileMorePhotosStyles, ...this.props.style }}
+        style={{...ProfileMorePhotosStyles, ...this.props.style}}
         key={index}
         role="presentation"
       />
@@ -32,7 +32,7 @@ class ProfileMorePhotos extends React.Component {
       <div>
         <OCMediaCarousel
           title={this.props.data.length + ' Photos'}
-          children={children}
+          children={childrenNodes}
           style={this.props.style}
           numElementsPerPanel={numElementsPerPanel}
         />
