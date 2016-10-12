@@ -23,7 +23,7 @@ class ProfileMorePhotos extends React.Component {
     const childrenNodes = this.props.data.map((item, index) => (
       <img
         src={item}
-        style={{...ProfileMorePhotosStyles, ...this.props.style}}
+        style={{ ...ProfileMorePhotosStyles, ...this.props.style }}
         key={index}
         role="presentation"
       />
