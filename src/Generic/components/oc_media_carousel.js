@@ -1,13 +1,22 @@
 import React from 'react';
+import 'font-awesome/css/font-awesome.css';
 
 const styles = {
   list: {
     width: '50%',
     margin: 'auto',
   },
+  arrows: {
+    margin: '45px 7px',
+    verticalAlign: 'top',
+    cursor: 'pointer',
+  },
 };
 
+let pageCount = 0;
+
 class OCMediaCarousel extends React.Component {
+
   constructor(props) {
     super(props);
 
@@ -15,9 +24,19 @@ class OCMediaCarousel extends React.Component {
       page: 0,
     };
     this.changePage = this.changePage.bind(this);
+    this.stepLeft = this.stepLeft.bind(this);
+    this.stepRight = this.stepRight.bind(this);
   }
   changePage(e) {
     this.setState({ page: e.target.value });
+  }
+  stepLeft() {
+    const currentPage = this.state.page - 1 < 0 ? pageCount - 1 : this.state.page - 1;
+    this.setState({ page: currentPage });
+  }
+  stepRight() {
+    const currentPage = this.state.page + 1 > pageCount - 1 ? 0 : this.state.page + 1;
+    this.setState({ page: currentPage });
   }
   render() {
     const { style, children, numElementsPerPanel } = this.props;
@@ -29,7 +48,8 @@ class OCMediaCarousel extends React.Component {
       childrenToShow.push(children[startIdx + i]);
     }
     let pages = [];
-    for (i = 0; i < Math.ceil(children.length / numElementsPerPanel); i++) {
+    pageCount = Math.ceil(children.length / numElementsPerPanel);
+    for (i = 0; i < pageCount; i++) {
       dotStyle = {
         float: 'left',
         color: i === this.state.page ? 'pink' : 'grey',
@@ -54,7 +74,9 @@ class OCMediaCarousel extends React.Component {
         <br />
         <br />
         <div>
+          <span onClick={this.stepLeft} style={styles.arrows} className="fa fa-chevron-circle-left"></span>
           {childrenToShow}
+          <span onClick={this.stepRight} style={styles.arrows} className="fa fa-chevron-circle-right"></span>
         </div>
       </div>
     );
