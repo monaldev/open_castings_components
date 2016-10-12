@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import ProfileMorePhotosItem from './profile_more_photos_item';
+import OCMediaCarousel from '../../Generic/components/oc_media_carousel';
 
 const ProfileMorePhotosStyles = {
     border: '1px solid #eee',
@@ -19,19 +20,21 @@ class ProfileMorePhotos extends React.Component {
 
     }
 
-    componentDidMount()  {
-        console.log('componentDidMount this.props.children ' + React.Children.toArray(this.props.children+' -> '+this.props.children));
-        var ttt = React;
-    }
+
 
     render() {
+        let numElementsPerPanel = this.props.numElementsPerPanel||3;
+        const children = this.props.data.map((item, index) => (
+            <img src={item} style={{ ...ProfileMorePhotosStyles, ...this.props.style }} key={index} />
+            ));
         return (
             <div>
-                {
-                    this.props.data.map((item, index) => (
-                        <ProfileMorePhotosItem data = {item}  style={{ ...ProfileMorePhotosStyles, ...this.props.style }}    />
-                    ))
-                }
+                <OCMediaCarousel
+                    title={this.props.data.length + ' Photos'}
+                    children={children}
+                    style={this.props.style}
+                    numElementsPerPanel={numElementsPerPanel}
+                />
             </div>
 
         )
@@ -41,6 +44,7 @@ class ProfileMorePhotos extends React.Component {
 ProfileMorePhotos.propTypes = {
     data: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
     style: React.PropTypes.object,
+    numElementsPerPanel: React.PropTypes.number,
 };
 
 export default ProfileMorePhotos;
