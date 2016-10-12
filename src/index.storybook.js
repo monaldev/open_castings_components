@@ -1,3 +1,4 @@
+require('./Audition/stories');
 require('./Buttons/stories');
 require('./Profile/stories');
 require('./Generic/stories');
