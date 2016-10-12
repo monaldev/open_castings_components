@@ -3,7 +3,6 @@ import {
   Card,
   CardText,
   CardTitle,
-  Divider,
 } from 'material-ui';
 import ProfileExperienceItem from './profile_experience_item';
 
