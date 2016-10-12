@@ -48,7 +48,11 @@ module.exports = {
       loader: 'url-loader?limit=10000&name=assets/[hash].[ext]',
       exclude: /node_modules/,
       include: path.resolve(__dirname, '../'),
-    }],
+    }, {
+      test: /sinon.*\.js$/,
+      loader: "imports?define=>false,require=>false"
+    }
+    ],
   },
   resolve: {
     alias: {
