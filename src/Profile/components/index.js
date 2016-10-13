@@ -7,5 +7,6 @@ export { default as ProfileBasicStats } from './profile_basic_stats';
 export { default as ProfileEducationTraining } from './profile_education_training';
 export { default as ProfileEducationTrainingItem } from './profile_education_training_item';
 export { default as ProfileSkills } from './profile_skills';
+export { default as ProfileMorePhotos } from './profile_more_photos';
 export { default as ProfileExperienceCategory } from './profile_experience_category';
 export { default as ProfileExperienceItem } from './profile_experience_item';
