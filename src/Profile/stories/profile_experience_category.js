@@ -28,8 +28,33 @@ storiesOf('ProfileExperienceCategory', module)
         location: 'Los Angeles',
       },
     ];
-    const count = children.length;
-    const categoryName = `Theater (${count})`;
+    const categoryName = 'Theater';
+    const story = (
+      <ProfileExperienceCategory
+        children={children}
+        categoryName={categoryName}
+      />
+    );
+    return story;
+  })
+  .add('multiple', () => {
+    const children = [
+      {
+        title: 'The lion king',
+        role: 'Ensenble/Mufasa understudy',
+        director: 'Julie Peloni',
+        company: 'Disney Entertainment',
+        location: 'Los Angeles',
+      },
+      {
+        title: 'The lion king',
+        role: 'Ensenble/Mufasa understudy',
+        director: 'Julie Peloni',
+        company: 'Disney Entertainment',
+        location: 'Los Angeles',
+      },
+    ];
+    const categoryName = 'Theater';
     const story = (
       <ProfileExperienceCategory
         children={children}

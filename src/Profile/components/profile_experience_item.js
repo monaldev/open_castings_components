@@ -5,11 +5,11 @@ import {
 
 const ProfileExperienceItem = ({ data, style }) => (
   <div style={style}>
-    <CardHeader title="TITLE:" subtitle={data.title} />
-    <CardHeader title="ROLE:" subtitle={data.role} />
-    <CardHeader title="DIRECTOR:" subtitle={data.director} />
-    <CardHeader title="COMPANY:" subtitle={data.company} />
-    <CardHeader title="LOCATION:" subtitle={data.location} />
+    <CardHeader title={data.title} subtitle="TITLE:" />
+    <CardHeader title={data.role} subtitle="ROLE:" />
+    <CardHeader title={data.director} subtitle="DIRECTOR:" />
+    <CardHeader title={data.company} subtitle="COMPANY:" />
+    <CardHeader title={data.location} subtitle="LOCATION:" />
   </div>
 );
 

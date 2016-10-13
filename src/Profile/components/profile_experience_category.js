@@ -15,7 +15,7 @@ const ProfileExperienceCategory = ({
     initiallyExpanded
   >
     <CardTitle
-      title={categoryName}
+      title={`${categoryName} (${children.length})`}
       actAsExpander
       showExpandableButton
     />
@@ -26,6 +26,7 @@ const ProfileExperienceCategory = ({
       {
         children.map((item, index) => (
           <div key={index}>
+            {index >= 1 ? <Divider /> : ''}
             <ProfileExperienceItem data={item} />
           </div>
         ))
