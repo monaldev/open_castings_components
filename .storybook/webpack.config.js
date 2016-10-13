@@ -4,11 +4,7 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   externals: {
-    jsdom: 'window',
-    cheerio: 'window',
-    'react/lib/ExecutionEnvironment': true,
-    'react/lib/ReactContext': 'window',
-    'react/addons': true,
+    'react-bootstrap': 'ReactBootstrap',
   },
   module: {
     noParse: [
