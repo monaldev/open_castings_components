@@ -1,12 +1,11 @@
 import React from 'react';
-import {
-  AutoComplete,
-} from 'material-ui';
 import GoogleMapsLoader from 'google-maps';
 GoogleMapsLoader.LIBRARIES = ['places'];
 GoogleMapsLoader.KEY = 'AIzaSyAnMcYCuXg_JH2vP7AE09wIGCqyfoKYGJs';
 
-class ProductionDetailsForm extends React.Component {
+import Typeahead from 'react-bootstrap-typeahead';
+
+class OCCitySearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,7 +37,6 @@ class ProductionDetailsForm extends React.Component {
         input,
         types: ['(cities)'],
       };
-
       service.getPlacePredictions(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           for (let i = 0; i < results.length; i++) {
@@ -54,29 +52,35 @@ class ProductionDetailsForm extends React.Component {
       this.setState({ dataSource: [] });
     }
   }
+  // <AutoComplete
+  //   {...this.props}
+  //   id="autocomplete"
+  //   onUpdateInput={this.updateInput.bind(this)}
+  //   floatingLabelText="Enter a city, state"
+  //   floatingLabelFixed
+  //   fullWidth
+  //   searchText={this.state.input}
+  //   dataSource={this.state.dataSource}
+  //   filter={AutoComplete.noFilter}
+  //   onNewRequest={this.onSelected.bind(this)}
+  //   menuStyle={{ maxHeight: '200px' }}
+  //   openOnFocus
+  // />
   render() {
     return (
-      <AutoComplete
-        {...this.props}
-        id="autocomplete"
-        onUpdateInput={this.updateInput.bind(this)}
-        floatingLabelText="Enter a city, state"
-        floatingLabelFixed
-        fullWidth
-        searchText={this.state.input}
-        dataSource={this.state.dataSource}
-        filter={AutoComplete.noFilter}
-        onNewRequest={this.onSelected.bind(this)}
-        menuStyle={{ maxHeight: '200px' }}
-        openOnFocus
+      <Typeahead
+        onChange={this.onSelected.bind(this)}
+        onInputChange={this.updateInput.bind(this)}
+        options={this.state.dataSource}
+        labelKey="text"
       />
     );
   }
 }
 
-ProductionDetailsForm.propTypes = {
-  onLocationSelected: React.PropTypes.func,
+OCCitySearch.propTypes = {
+  onLocationSelected: React.PropTypes.func.isRequired,
   value: React.PropTypes.string,
 };
 
-export default ProductionDetailsForm;
+export default OCCitySearch;

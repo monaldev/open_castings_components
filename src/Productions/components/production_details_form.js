@@ -1,14 +1,33 @@
 import React from 'react';
-import {
-  CardTitle,
-  CardHeader,
-} from 'material-ui';
-import {
-  FormsyText,
-  FormsyDate,
-} from 'formsy-material-ui';
 import Formsy from 'formsy-react';
+import {
+  Input,
+  Textarea,
+  ParentContextMixin,
+} from 'formsy-react-components';
+import {
+  Row,
+  Col,
+} from 'react-bootstrap';
 import { OCFormsyCitySearch } from '../../';
+
+const MyForm = React.createClass({
+  propTypes: {
+    children: React.PropTypes.node,
+  },
+  mixins: [ParentContextMixin],
+  render() {
+    return (
+      <Formsy.Form
+        className={this.getLayoutClassName()}
+        {...this.props}
+        ref="formsy"
+      >
+        {this.props.children}
+      </Formsy.Form>
+    );
+  },
+});
 
 const ProductionDetailsForm = ({
   style,
@@ -17,64 +36,62 @@ const ProductionDetailsForm = ({
   <div
     style={{ ...style }}
   >
-    <CardTitle
-      title="Production Details"
-    />
-    <Formsy.Form
+    <div className="page-header">
+      <h3>Production Details</h3>
+    </div>
+    <MyForm
+      layout="vertical"
+      autocomplete="off"
       {...rest}
     >
-      <FormsyText
-        floatingLabelText="Title of Production*"
+      <Input
         name="title"
-        floatingLabelFixed
-        fullWidth
-        isRequired
+        label="Title of Production"
+        type="text"
         validations="minLength:1"
         validationError="Please enter a longer title"
+        required
       />
-      <FormsyText
-        floatingLabelText="Production Company*"
+      <Input
         name="company"
-        floatingLabelFixed
-        fullWidth
-        isRequired
+        label="Production Company"
+        type="text"
       />
-      <FormsyText
-        floatingLabelText="Production Description (optional)"
+      <Textarea
+        rows={3}
         name="description"
-        floatingLabelFixed
-        multiLine
-        fullWidth
-        rows={2}
+        label="Production Description"
       />
-      <CardHeader
-        title="Production Location*"
-        style={{
-          paddingLeft: 0,
-        }}
-        isRequired
-      />
+      <label>Production Location</label>
       <OCFormsyCitySearch
         name="city"
         isRequired
       />
-      <CardHeader
-        title="Production Date(s)"
+      <legend>Production Date(s)</legend>
+      <Row
         style={{
-          paddingLeft: 0,
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          flexWrap: 'wrap',
         }}
-      />
-      <FormsyDate
-        name="start"
-        floatingLabelText="Start Date"
-        floatingLabelFixed
-      />
-      <FormsyDate
-        name="end"
-        floatingLabelText="End Date"
-        floatingLabelFixed
-      />
-    </Formsy.Form>
+      >
+        <Col md={6} sm={12} >
+          <Input
+            name="start"
+            label="Start Date"
+            type="date"
+          />
+        </Col>
+        <Col md={6} sm={12} >
+          <Input
+            name="end"
+            label="End Date"
+            type="date"
+          />
+        </Col>
+      </Row>
+    </MyForm>
   </div>
 );
 

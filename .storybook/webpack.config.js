@@ -4,7 +4,6 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   externals: {
-    'react-bootstrap': 'ReactBootstrap',
   },
   module: {
     noParse: [
