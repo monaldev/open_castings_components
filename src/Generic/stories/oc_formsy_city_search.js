@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf, action } from '@kadira/storybook';
 import { OCCitySearch, OCFormsyCitySearch } from '~/';
 import Formsy from 'formsy-react';
 import LoadMuiTheme from '~/.storybook/load_mui_theme';
@@ -22,6 +22,7 @@ storiesOf('OCCitySearch', module)
     const story = (
       <OCCitySearch
         value="Costa Mesa, CA"
+        onLocationSelected={action('location!')}
       />
     );
     return story;
@@ -48,6 +49,7 @@ storiesOf('OCFormsyCitySearch', module)
       <OCFormsyCitySearch
         name="city"
         value="Costa Mesa, CA"
+        onLocationSelected={action('location!')}
       />
     );
     return story;

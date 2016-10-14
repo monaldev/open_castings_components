@@ -1,9 +1,5 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import { specs, describe, it } from 'storybook-addon-specifications';
-import { shallow } from 'enzyme';
-import { expect } from 'chai';
-
 import { ocEditableHOC } from '~/';
 import LoadMuiTheme from '~/.storybook/load_mui_theme';
 
@@ -51,13 +47,6 @@ storiesOf('ocEditableHOC', module)
         Hello
       </EditableContainer>
     );
-
-    specs(() => describe('ocEditableHOC', () => {
-      it('should not show the popover by default', () => {
-        const output = shallow(story);
-        expect(output.find('Popover').at(0).prop('open')).to.equal(false);
-      });
-    }));
     return story;
   })
   .add('edit view', () => {
@@ -70,12 +59,5 @@ storiesOf('ocEditableHOC', module)
         Hello
       </EditableContainer>
     );
-
-    specs(() => describe('ocEditableHOC', () => {
-      it('should show the popup when setting editMode', () => {
-        const output = shallow(story);
-        expect(output.find('Popover').at(0).prop('open')).to.equal(true);
-      });
-    }));
     return story;
   });

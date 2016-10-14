@@ -1,9 +1,4 @@
 import React from 'react';
-import {
-  SelectField,
-  CardHeader,
-  MenuItem,
-} from 'material-ui';
 import productionTypes from './production_types.json';
 
 const filterSubCategories = (selectedCategory) => {
@@ -26,42 +21,55 @@ const ProductionTypeSelection = ({
   <div
     style={{ ...style }}
   >
-    <CardHeader
-      title="What would you like to list?"
-    />
-    <SelectField
+    <div className="page-header">
+      <h3>What would you like to list</h3>
+    </div>
+    <select
+      onChange={(e) => onChange({ ...selected, category: e.target.value })}
+      label="Select a category"
+      className="form-control"
+      id="category"
       value={selected.category}
-      autoWidth
-      onChange={(e, key) => onChange({ ...selected, category: key })}
     >
       {
         Object.keys(productionTypes.categories).map(key => (
-          <MenuItem
+          <option
             key={key}
             value={key}
-            primaryText={productionTypes.categories[key]}
-          />
+          >
+            {productionTypes.categories[key]}
+          </option>
         ))
       }
-    </SelectField>
+    </select>
     <br />
-    <SelectField
-      value={selected.sub}
-      disabled={selected.category === '0'}
-      autoWidth
-      onChange={(e, key) => onChange({ ...selected, sub: key })}
+    <select
+      onChange={(e) => onChange({ ...selected, sub: e.target.value })}
+      label="Select a Subcategory"
+      className="form-control"
+      id="subcategory"
+      value={selected.category}
     >
+      <option
+        key="0"
+        value="0"
+      >
+        ---
+      </option>
       {
         filterSubCategories(selected.category)
         .map(key => {
-          return (<MenuItem
-            key={key}
-            value={key}
-            primaryText={productionTypes.subCategories[key].name}
-          />);
+          return (
+            <option
+              key={key}
+              value={key}
+            >
+              {productionTypes.subCategories[key].name}
+            </option>
+          );
         })
       }
-    </SelectField>
+    </select>
   </div>
 );
 

@@ -1,4 +1,9 @@
 import React from 'react';
+import {
+  Button as BSButton,
+  OverlayTrigger,
+  Popover,
+} from 'react-bootstrap';
 
 const buttonStyles = {
   border: '1px solid #eee',
@@ -9,13 +14,25 @@ const buttonStyles = {
   padding: '3px 10px',
 };
 
+const popoverTop = (
+  <Popover id="popover-positioned-bottom" title="Popover bottom">
+    <strong>Holy guacamole!</strong> Check this info.
+  </Popover>
+);
+
 const Button = ({ children, onClick, style = {} }) => (
-  <button
-    style={{ ...buttonStyles, ...style }}
-    onClick={onClick}
+  <OverlayTrigger
+    trigger="click"
+    placement="bottom"
+    overlay={popoverTop}
+    rootClose
   >
-    {children}
-  </button>
+    <BSButton
+      bsStyle="primary"
+    >
+      {children}
+    </BSButton>
+  </OverlayTrigger>
 );
 
 Button.propTypes = {
