@@ -6,4 +6,5 @@ require('./profile_basic_stats');
 require('./profile_education_training');
 require('./profile_education_training_item');
 require('./profile_more_photos');
-
+require('./profile_experience_category');
+require('./profile_experience_item');
