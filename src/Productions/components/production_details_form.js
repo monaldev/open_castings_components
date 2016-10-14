@@ -1,33 +1,13 @@
 import React from 'react';
-import Formsy from 'formsy-react';
 import {
   Input,
   Textarea,
-  ParentContextMixin,
 } from 'formsy-react-components';
 import {
   Row,
   Col,
 } from 'react-bootstrap';
-import { OCFormsyCitySearch } from '../../';
-
-const MyForm = React.createClass({
-  propTypes: {
-    children: React.PropTypes.node,
-  },
-  mixins: [ParentContextMixin],
-  render() {
-    return (
-      <Formsy.Form
-        className={this.getLayoutClassName()}
-        {...this.props}
-        ref="formsy"
-      >
-        {this.props.children}
-      </Formsy.Form>
-    );
-  },
-});
+import { OCFormsyCitySearch, OCFormContainer } from '../../';
 
 const ProductionDetailsForm = ({
   style,
@@ -39,7 +19,7 @@ const ProductionDetailsForm = ({
     <div className="page-header">
       <h3>Production Details</h3>
     </div>
-    <MyForm
+    <OCFormContainer
       layout="vertical"
       autocomplete="off"
       {...rest}
@@ -91,7 +71,7 @@ const ProductionDetailsForm = ({
           />
         </Col>
       </Row>
-    </MyForm>
+    </OCFormContainer>
   </div>
 );
 

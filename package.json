@@ -56,6 +56,7 @@
     "react-addons-test-utils": "^15.0.0",
     "react-bootstrap": "^0.30.5",
     "react-dom": "^15.0.0",
+    "react-tap-event-plugin": "^1.0.0",
     "script-loader": "^0.7.0",
     "sinon": "^1.17.3",
     "style-loader": "^0.13.1",
@@ -76,6 +77,7 @@
     "jquery": "^3.1.1",
     "mathjs": "^3.5.3",
     "path": "^0.12.7",
+    "react-bootstrap-multiselect": "^2.3.0",
     "react-bootstrap-typeahead": "^0.9.4"
   },
   "main": "dist/index.js",

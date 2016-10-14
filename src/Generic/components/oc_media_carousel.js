@@ -74,9 +74,17 @@ class OCMediaCarousel extends React.Component {
         <br />
         <br />
         <div>
-          <span onClick={this.stepLeft} style={styles.arrows} className="fa fa-chevron-circle-left"></span>
-          {childrenToShow}
-          <span onClick={this.stepRight} style={styles.arrows} className="fa fa-chevron-circle-right"></span>
+          <span
+            onClick={this.stepLeft}
+            style={styles.arrows}
+            className="fa fa-chevron-circle-left"
+          />
+            {childrenToShow}
+          <span
+            onClick={this.stepRight}
+            style={styles.arrows}
+            className="fa fa-chevron-circle-right"
+          />
         </div>
       </div>
     );

@@ -36,6 +36,7 @@ class OCCitySearch extends React.Component {
       const request = {
         input,
         types: ['(cities)'],
+        componentRestrictions: { country: 'us' },
       };
       service.getPlacePredictions(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
