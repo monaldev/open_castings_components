@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
 import { OCMediaCarousel } from '~/';
-import LoadMuiTheme from '~/.storybook/load_mui_theme';
 
 const ProfileMorePhotosStyles = {
   border: '1px solid #eee',
@@ -16,17 +15,15 @@ const ProfileMorePhotosStyles = {
 
 storiesOf('OCMediaCarousel', module)
   .addDecorator(story => (
-    <LoadMuiTheme>
-      <div
-        style={{
-          width: '100%',
-          margin: 'auto',
-          position: 'relative',
-        }}
-      >
-        {story()}
-      </div>
-    </LoadMuiTheme>
+    <div
+      style={{
+        width: '100%',
+        margin: 'auto',
+        position: 'relative',
+      }}
+    >
+      {story()}
+    </div>
   ))
   .add('Carousel', () => {
     const style = {

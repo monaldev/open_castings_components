@@ -13,8 +13,8 @@ const filterSubCategories = (selectedCategory) => {
 const ProductionTypeSelection = ({
   style = {},
   selected = {
-    category: '0',
-    sub: '0',
+    category: undefined,
+    sub: undefined,
   },
   onChange,
 }) => (
