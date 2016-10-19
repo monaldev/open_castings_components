@@ -1,0 +1,6 @@
+$bar_height: 2px;
+.bar {
+  height: $bar_height;
+  background-color: black;
+  margin: -$bar_height / 2;
+}

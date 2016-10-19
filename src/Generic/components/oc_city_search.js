@@ -20,7 +20,7 @@ class OCCitySearch extends React.Component {
     });
   }
   onSelected(selected) {
-    this.props.onLocationSelected(selected);
+    this.props.onLocationSelected(selected[0]);
   }
   updateInput(input) {
     this.setState({ input }, this.filterDropDown.bind(this));
@@ -53,20 +53,6 @@ class OCCitySearch extends React.Component {
       this.setState({ dataSource: [] });
     }
   }
-  // <AutoComplete
-  //   {...this.props}
-  //   id="autocomplete"
-  //   onUpdateInput={this.updateInput.bind(this)}
-  //   floatingLabelText="Enter a city, state"
-  //   floatingLabelFixed
-  //   fullWidth
-  //   searchText={this.state.input}
-  //   dataSource={this.state.dataSource}
-  //   filter={AutoComplete.noFilter}
-  //   onNewRequest={this.onSelected.bind(this)}
-  //   menuStyle={{ maxHeight: '200px' }}
-  //   openOnFocus
-  // />
   render() {
     return (
       <Typeahead
@@ -74,6 +60,7 @@ class OCCitySearch extends React.Component {
         onInputChange={this.updateInput.bind(this)}
         options={this.state.dataSource}
         labelKey="text"
+        selected={[this.props.value]}
       />
     );
   }

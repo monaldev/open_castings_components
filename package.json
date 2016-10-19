@@ -1,6 +1,6 @@
 {
   "name": "open-castings-components",
-  "version": "0.0.20",
+  "version": "0.0.27",
   "description": "Open Castings Component Library",
   "repository": {
     "type": "git",
@@ -64,6 +64,8 @@
   },
   "dependencies": {
     "babel-runtime": "^6.5.0",
+    "font-awesome": "^4.6.3",
+    "formsy-react": "^0.18.1",
     "formsy-react-components": "^0.8.1",
     "google-maps": "^3.2.1",
     "jquery": "^3.1.1",
@@ -71,8 +73,7 @@
     "path": "^0.12.7",
     "react-bootstrap-multiselect": "^2.3.0",
     "react-bootstrap-typeahead": "^0.9.4",
-    "font-awesome": "^4.6.3",
-    "formsy-react": "^0.18.1"
+    "react-slider": "^0.7.0"
   },
   "main": "dist/index.js",
   "engines": {

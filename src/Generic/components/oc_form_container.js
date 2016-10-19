@@ -9,12 +9,15 @@ const MyForm = React.createClass({
     children: React.PropTypes.node,
   },
   mixins: [ParentContextMixin],
+  getModel() {
+    return this.refs.formsy.getModel();
+  },
   render() {
     return (
       <Formsy.Form
         className={this.getLayoutClassName()}
-        {...this.props}
         ref="formsy"
+        {...this.props}
       >
         {this.props.children}
       </Formsy.Form>

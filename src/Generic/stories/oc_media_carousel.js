@@ -50,7 +50,7 @@ storiesOf('OCMediaCarousel', module)
         children={profilePhotos}
         style={{ width: '100%' }}
         numElementsPerPanel={2}
-        title={data.length + ' Items'}
+        title={`${data.length} Items`}
       />
     );
 

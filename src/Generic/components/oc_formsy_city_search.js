@@ -11,7 +11,7 @@ const OCFormsyCitySearch = ({
 }) => (
   <OCCitySearch
     {...rest}
-    value={getValue() ? getValue().fullAddress : undefined}
+    value={getValue() || undefined}
     errorText={getErrorMessage()}
     onLocationSelected={(selected) => setValue(selected)}
   />
