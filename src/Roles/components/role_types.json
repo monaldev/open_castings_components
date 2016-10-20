@@ -1,0 +1,16 @@
+{
+  "gender": {
+    "ANY_GENDER": "Any Gender",
+    "MALE": "Male",
+    "FEMALE": "Female"
+  },
+  "unionStatus": {
+    "UNION_AND_NONUNION": "Union and Nonunion",
+    "UNION": "Union",
+    "NONUNION": "Nonunion"
+  },
+  "ethnicities": {
+    "CAUCASIAN": "Caucasian",
+    "AFRICAN_AMERICAN": "African American"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "open-castings-components",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "description": "Open Castings Component Library",
   "repository": {
     "type": "git",
@@ -68,6 +68,7 @@
     "formsy-react": "^0.18.1",
     "formsy-react-components": "^0.8.1",
     "google-maps": "^3.2.1",
+    "immutable": "^3.8.1",
     "jquery": "^3.1.1",
     "mathjs": "^3.5.3",
     "path": "^0.12.7",

@@ -54,7 +54,7 @@ class OCStepper extends React.Component {
     this.setState({ step: currentStep });
   }
   render() {
-    const { style, steps } = this.props;
+    const { style, steps, hideNavButtons, navButtons, hideDots } = this.props;
     const { step } = this.state;
     let stepToShow = steps[step].component;
     const isCurrentStepValid = steps[step].isValid;
@@ -75,30 +75,43 @@ class OCStepper extends React.Component {
 
     return (
       <div style={style}>
+        {
+          hideDots
+          ? undefined
+          : (
+            <div>
+              {dots}
+            </div>
+          )
+        }
         <div>
-          {dots}
+          {stepToShow}
         </div>
         <br />
-        {stepToShow}
-        <br />
-        <ButtonToolbar>
-          <Button
-            onClick={this.stepLeft}
-            disabled={step === 0}
-          >
-            Back
-          </Button>
-          <Button
-            onClick={this.stepRight}
-            disabled={!isCurrentStepValid}
-          >
-            {
-              step === steps.length - 1
-              ? 'Finish'
-              : 'Next'
-            }
-          </Button>
-        </ButtonToolbar>
+        {
+          hideNavButtons
+          ? navButtons
+          : (
+              <ButtonToolbar>
+                <Button
+                  onClick={this.stepLeft}
+                  disabled={step === 0}
+                >
+                  Back
+                </Button>
+                <Button
+                  onClick={this.stepRight}
+                  disabled={!isCurrentStepValid}
+                >
+                  {
+                    step === steps.length - 1
+                    ? 'Finish'
+                    : 'Next'
+                  }
+                </Button>
+              </ButtonToolbar>
+            )
+        }
       </div>
     );
   }
@@ -108,6 +121,9 @@ OCStepper.propTypes = {
   style: React.PropTypes.object,
   steps: React.PropTypes.array,
   currentStep: React.PropTypes.number,
+  hideNavButtons: React.PropTypes.boolean,
+  hideDots: React.PropTypes.boolean,
+  navButtons: React.PropTypes.node,
 };
 
 export default OCStepper;
