@@ -96,6 +96,11 @@ class RoleAddEditStepper extends React.Component {
           <RoleBuildAuditionFormsy
             value={data.sides}
             name="sides"
+            validations={{
+              validCategory: (values, value) =>
+                (value.length > 0 ? true : 'Please add sides'),
+            }}
+            required
           />
         </OCFormContainer>
       );
