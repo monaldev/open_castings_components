@@ -63,7 +63,7 @@ class RoleListFormsy extends React.Component {
                               setValue(newValue);
                             });
                           }}
-                          onHide={() => this.setState({ showModal: false })}
+                          onHide={() => this.setState({ showEdit: undefined })}
                         />
                       </Button>
                       <Button
