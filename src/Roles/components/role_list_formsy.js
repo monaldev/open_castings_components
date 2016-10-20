@@ -18,6 +18,7 @@ class RoleListFormsy extends React.Component {
     super(props);
     this.state = {
       showModal: false,
+      showEdit: undefined,
     };
   }
   render() {
@@ -48,8 +49,32 @@ class RoleListFormsy extends React.Component {
                       {role.title}
                     </div>
                     <ButtonGroup pullRight>
-                      <Button>Edit</Button>
-                      <Button>Delete</Button>
+                      <Button
+                        onClick={() => this.setState({ showEdit: index })}
+                      >
+                        Edit
+                        <RoleAddEditStepper
+                          show={this.state.showEdit === index}
+                          selected={getValue()[index]}
+                          onSubmit={(model) => {
+                            this.setState({ showEdit: undefined }, () => {
+                              const newValue = [...getValue()];
+                              newValue[index] = { ...model };
+                              setValue(newValue);
+                            });
+                          }}
+                          onHide={() => this.setState({ showModal: false })}
+                        />
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          const newValue = [...getValue()];
+                          newValue.splice(index, 1);
+                          setValue(newValue);
+                        }}
+                      >
+                        Delete
+                      </Button>
                     </ButtonGroup>
                   </div>
                 }

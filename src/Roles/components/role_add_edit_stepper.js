@@ -44,7 +44,10 @@ const initialState = map({
 class RoleAddEditStepper extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { ...initialState.toObject() };
+    this.state = {
+      ...initialState.toObject(),
+      data: props.selected || initialState.toObject().data,
+    };
   }
   onCancel() {
     this.setState(
@@ -172,6 +175,7 @@ class RoleAddEditStepper extends React.Component {
 
 RoleAddEditStepper.propTypes = {
   show: React.PropTypes.boolean,
+  selected: React.PropTypes.object,
   onSubmit: React.PropTypes.func,
   onHide: React.PropTypes.func,
 };
