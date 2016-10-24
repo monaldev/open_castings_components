@@ -16,28 +16,23 @@ import {
   OCDualSlider,
   BootstrapMultiselect,
 } from '../../';
+import roleTypes from './role_types.json';
 
 class RoleDetailsForm extends React.Component {
   render() {
     const {
       style,
-      selected,
       onChange,
+      selected,
       ...rest,
     } = this.props;
-    const selectOptions = [
-      { value: 'a', label: 'Option A' },
-      { value: 'b', label: 'Option B' },
-      { value: 'c', label: 'Option C' },
-      { value: 'd', label: 'Option D' },
-    ];
     return (
       <div
         style={{ ...style }}
       >
         <OCFormContainer
           layout="vertical"
-          autocomplete="off"
+          autoComplete={false}
           onChange={(model) => onChange(model)}
           {...rest}
         >
@@ -47,7 +42,7 @@ class RoleDetailsForm extends React.Component {
             type="text"
             validations="minLength:1"
             validationError="Please enter a longer title"
-            value={selected ? selected.title : undefined}
+            value={selected.title}
             required
           />
           <Select
@@ -55,85 +50,71 @@ class RoleDetailsForm extends React.Component {
             label="Role type"
             validations={{
               validCategory: (values, value) =>
-                (parseInt(value, 10) > 0 ? true : 'Please select a type'),
+                (parseInt(value, 10) > 0 ? true : 'Please select a role type'),
             }}
             options={[
               {
-                value: 0,
-                label: '---',
+                value: '0',
+                label: 'Select role type',
               },
               {
-                value: 1,
+                value: '1',
                 label: 'Lead',
               },
               {
-                value: 2,
+                value: '2',
                 label: 'Supporting',
               },
               {
-                value: 3,
+                value: '3',
                 label: 'Lead',
               },
               {
-                value: 4,
+                value: '4',
                 label: 'Lead',
               },
               {
-                value: 5,
+                value: '5',
                 label: 'Lead',
               },
               {
-                value: 6,
+                value: '6',
                 label: 'Lead',
               },
             ]}
-            value={selected ? selected.type : undefined}
+            value={selected.type}
             required
           />
           <RadioGroup
             name="unionStatus"
             type="inline"
-            label="Union Status"
+            label="Union Status (optional)"
             options={[
-              {
-                value: 0,
-                label: 'Union and Nonunion',
-              },
-              {
-                value: 1,
-                label: 'Union',
-              },
-              {
-                value: 2,
-                label: 'Nonunion',
-              },
+              ...Object.keys(roleTypes.unionStatus).map(option => ({
+                value: option,
+                label: roleTypes.unionStatus[option],
+              })),
             ]}
-            value={selected ? selected.unionStatus : undefined}
-            required
+            value={selected.unionStatus}
           />
           <RadioGroup
             name="gender"
             type="inline"
             label="Gender (optional)"
             options={[
-              {
-                value: 0,
-                label: 'Any Gender',
-              },
-              {
-                value: 1,
-                label: 'Male',
-              },
-              {
-                value: 2,
-                label: 'Female',
-              },
+              ...Object.keys(roleTypes.gender).map(option => ({
+                value: option,
+                label: roleTypes.gender[option],
+              })),
             ]}
-            value={selected ? selected.gender : undefined}
+            value={selected.gender}
           />
           <br />
           <ControlLabel>
-            Age Range (optional):<strong>{` ${selected.ageMin}-${selected.ageMax}`}</strong>
+            Age Range (optional):
+            <strong>
+              {` ${selected.ageMin}-${selected.ageMax}`}
+            </strong>
           </ControlLabel>
           <div
             style={{
@@ -146,7 +127,7 @@ class RoleDetailsForm extends React.Component {
               step={1}
               value={[selected.ageMin, selected.ageMax]}
               onChange={(values) => {
-                const model = this.props.selected;
+                const model = selected;
                 model.ageMin = values[0];
                 model.ageMax = values[1];
                 onChange(model);
@@ -163,7 +144,7 @@ class RoleDetailsForm extends React.Component {
                 validations="minLength:1"
                 validationError="Please enter a correct age"
                 defaultValue={0}
-                value={selected ? selected.ageMin : undefined}
+                value={selected.ageMin}
                 validations={{
                   validAgeMin: (values, value) =>
                     (
@@ -183,7 +164,7 @@ class RoleDetailsForm extends React.Component {
                 validations="minLength:1"
                 validationError="Please enter a correct age"
                 defaultValue={100}
-                value={selected ? selected.ageMax : undefined}
+                value={selected.ageMax}
                 validations={{
                   validAgeMax: (values, value) =>
                     (
@@ -200,10 +181,10 @@ class RoleDetailsForm extends React.Component {
           </ControlLabel>
           <div>
             <BootstrapMultiselect
-              onChange={(sel) => {
-                const newModel = selected;
-                newModel.ethnicities = newModel.ethnicities || [];
-                if (sel.selected) {
+              onChange={(options, checked) => {
+                const newModel = { ...selected };
+                const sel = options[0];
+                if (checked) {
                   newModel.ethnicities.push(sel.value);
                 } else {
                   const i = newModel.ethnicities.indexOf(sel.value);
@@ -214,23 +195,31 @@ class RoleDetailsForm extends React.Component {
                 onChange(newModel);
               }}
               data={
-                selectOptions.map(option => ({
-                  ...option,
-                  selected: selected.ethnicities.indexOf(option.value) !== -1,
-                }))
+                Object.keys(roleTypes.ethnicities).map(ethnicity => {
+                  return ({
+                    value: ethnicity,
+                    label: roleTypes.ethnicities[ethnicity],
+                    selected: (
+                      selected.ethnicities
+                      ? selected.ethnicities.indexOf(ethnicity) !== -1
+                      : false
+                    ),
+                  });
+                })
               }
               style={{
                 width: '100%',
               }}
               includeSelectAllOption
               selectAllText="All Ethnicities"
+              allSelectedText="All Ethnicities"
               onSelectAll={() => {
-                const newModel = selected;
-                newModel.ethnicities = selectOptions.map(option => option.value);
+                const newModel = { ...selected };
+                newModel.ethnicities = Object.keys(roleTypes.ethnicities);
                 onChange(newModel);
               }}
               onDeselectAll={() => {
-                const newModel = selected;
+                const newModel = { ...selected };
                 newModel.ethnicities = [];
                 onChange(newModel);
               }}
@@ -243,8 +232,8 @@ class RoleDetailsForm extends React.Component {
           <Textarea
             rows={3}
             name="description"
-            label="Role Description"
-            value={selected ? selected.description : undefined}
+            label="Role Description (optional)"
+            value={selected.description}
           />
           <Checkbox
             name="requiresNudity"
@@ -259,7 +248,8 @@ class RoleDetailsForm extends React.Component {
 
 RoleDetailsForm.propTypes = {
   style: React.PropTypes.object,
-  selected: React.PropTypes.object,
+  selected: React.PropTypes.object.isRequired,
+  onCancel: React.PropTypes.func,
   onChange: React.PropTypes.func,
 };
 

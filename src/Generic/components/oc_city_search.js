@@ -68,7 +68,7 @@ class OCCitySearch extends React.Component {
 
 OCCitySearch.propTypes = {
   onLocationSelected: React.PropTypes.func.isRequired,
-  value: React.PropTypes.string,
+  value: React.PropTypes.object,
 };
 
 export default OCCitySearch;
