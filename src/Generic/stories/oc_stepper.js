@@ -18,10 +18,25 @@ storiesOf('OCStepper', module)
   .add('first step', () => {
     const story = (
       <OCStepper
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          flexWrap: 'no-wrap',
+        }}
         steps={[
           {
             name: '',
-            component: <div>Hello</div>,
+            component: (
+              <div
+                style={{
+                  width: '100%',
+                  height: '500px',
+                  backgroundColor: 'gray',
+                }}
+              >
+                Hello
+              </div>
+            ),
             isValid: true,
           },
           {

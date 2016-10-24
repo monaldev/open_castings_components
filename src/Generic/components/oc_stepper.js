@@ -6,7 +6,7 @@ import {
 
 const styles = {
   list: {
-    width: '50%',
+    width: 'auto',
     margin: 'auto',
   },
   arrows: {
@@ -19,7 +19,6 @@ const styles = {
     color: 'transparent',
     marginRight: '20px',
     fontSize: '25px',
-    cursor: 'pointer',
   },
 };
 
@@ -65,7 +64,13 @@ class OCStepper extends React.Component {
     for (i = 0; i < stepCount; i++) {
       dotStyle = { ...styles.dotStyle };
       dotStyle.color = i === this.state.step ? 'pink' : 'grey';
-      stepsOverview.push(<li key={i} onClick={this.changeStep} value={i} style={dotStyle}></li>);
+      stepsOverview.push(
+        <li
+          key={i}
+          value={i}
+          style={dotStyle}
+        />
+      );
     }
     let dots = (
       <ul style={styles.list}>
@@ -79,7 +84,14 @@ class OCStepper extends React.Component {
           hideDots
           ? undefined
           : (
-            <div>
+            <div
+              style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
               {dots}
             </div>
           )
@@ -102,6 +114,7 @@ class OCStepper extends React.Component {
                 <Button
                   onClick={this.stepRight}
                   disabled={!isCurrentStepValid}
+                  bsStyle="primary"
                 >
                   {
                     step === steps.length - 1

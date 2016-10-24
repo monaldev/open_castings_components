@@ -33,11 +33,7 @@ module.exports = {
         include: path.resolve(__dirname, '../'),
       }, {
         test: /\.scss$/,
-        loaders: [
-          'style',
-          'css?modules&importLoaders=1' +
-            '&localIdentName=[name]__[local]___[hash:base64:5]!postcss',
-        ],
+        loaders: ['style', 'css', 'postcss', 'sass'],
         exclude: /node_modules/,
         include: path.resolve(__dirname, '../'),
       }, {
