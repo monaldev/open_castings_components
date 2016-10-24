@@ -32,7 +32,7 @@ class RoleDetailsForm extends React.Component {
       >
         <OCFormContainer
           layout="vertical"
-          autocomplete="off"
+          autoComplete={false}
           onChange={(model) => onChange(model)}
           {...rest}
         >
@@ -50,12 +50,12 @@ class RoleDetailsForm extends React.Component {
             label="Role type"
             validations={{
               validCategory: (values, value) =>
-                (parseInt(value, 10) > 0 ? true : 'Please select a type'),
+                (parseInt(value, 10) > 0 ? true : 'Please select a role type'),
             }}
             options={[
               {
                 value: '0',
-                label: '---',
+                label: 'Select role type',
               },
               {
                 value: '1',

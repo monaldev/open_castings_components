@@ -22,7 +22,7 @@ const ProductionDetailsForm = ({
     </div>
     <OCFormContainer
       layout="vertical"
-      autocomplete="off"
+      autoComplete={false}
       {...rest}
     >
       <Input

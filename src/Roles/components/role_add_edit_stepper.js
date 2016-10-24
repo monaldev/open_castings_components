@@ -110,6 +110,11 @@ class RoleAddEditStepper extends React.Component {
       default: return undefined;
     }
   }
+  componenWillReceiveProps(nextProps) {
+    if (nextProps.selected) {
+      this.setState({ data: nextProps.selected });
+    }
+  }
   render() {
     const {
       show,
@@ -174,7 +179,7 @@ class RoleAddEditStepper extends React.Component {
 }
 
 RoleAddEditStepper.propTypes = {
-  show: React.PropTypes.boolean,
+  show: React.PropTypes.bool,
   selected: React.PropTypes.object,
   onSubmit: React.PropTypes.func,
   onHide: React.PropTypes.func,

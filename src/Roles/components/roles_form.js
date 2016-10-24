@@ -9,7 +9,7 @@ const RolesForm = ({
 }) => (
   <OCFormContainer
     layout="vertical"
-    autocomplete="off"
+    autoComplete={false}
     {...rest}
   >
     <div className="page-header">
@@ -17,13 +17,18 @@ const RolesForm = ({
     </div>
     <RoleListFormsy
       name="roles"
-      value={selected}
+      value={selected ? selected.roles : undefined}
+      validations={{
+        validRoles: (values, value) =>
+          (value.length > 0 ? true : 'Please add at least one role'),
+      }}
+      required
     />
   </OCFormContainer>
 );
 
 RolesForm.propTypes = {
-  selected: React.PropTypes.array,
+  selected: React.PropTypes.object,
 };
 
 export default RolesForm;

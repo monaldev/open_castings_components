@@ -51,7 +51,7 @@ class ProductionTypeSelection extends React.Component {
         </div>
         <OCFormContainer
           layout="vertical"
-          autocomplete={false}
+          autoComplete={false}
           onChange={
             (model) =>
               this.setState({ category: model.category }, onChange.bind(this, model))

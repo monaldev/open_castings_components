@@ -121,8 +121,8 @@ OCStepper.propTypes = {
   style: React.PropTypes.object,
   steps: React.PropTypes.array,
   currentStep: React.PropTypes.number,
-  hideNavButtons: React.PropTypes.boolean,
-  hideDots: React.PropTypes.boolean,
+  hideNavButtons: React.PropTypes.bool,
+  hideDots: React.PropTypes.bool,
   navButtons: React.PropTypes.node,
 };
 
