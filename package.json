@@ -1,6 +1,6 @@
 {
   "name": "open-castings-components",
-  "version": "0.0.27",
+  "version": "0.0.32",
   "description": "Open Castings Component Library",
   "repository": {
     "type": "git",
@@ -46,6 +46,7 @@
     "jsdom": "^8.3.1",
     "json-loader": "^0.5.4",
     "mocha": "^2.4.5",
+    "node-sass": "^3.10.1",
     "path": "^0.12.7",
     "precss": "^1.4.0",
     "react": "^15.0.0",
@@ -53,6 +54,7 @@
     "react-bootstrap": "^0.30.5",
     "react-dom": "^15.0.0",
     "react-tap-event-plugin": "^1.0.0",
+    "sass-loader": "^4.0.2",
     "script-loader": "^0.7.0",
     "sinon": "^1.17.3",
     "style-loader": "^0.13.1",
@@ -68,6 +70,7 @@
     "formsy-react": "^0.18.1",
     "formsy-react-components": "^0.8.1",
     "google-maps": "^3.2.1",
+    "immutable": "^3.8.1",
     "jquery": "^3.1.1",
     "mathjs": "^3.5.3",
     "path": "^0.12.7",

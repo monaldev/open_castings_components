@@ -1,15 +1,15 @@
 {
   "categories": {
-    "0": "---",
-    "1": "FILM",
-    "2": "THEATER",
-    "3": "TV & VIDEO",
-    "4": "COMMERCIALS",
-    "5": "MODELING",
-    "6": "PERFORMING ARTS",
-    "7": "VOICEOVER",
-    "8": "ENTERTAINMENT JOBS & CREW",
-    "9": "EVENTS & REPRESENTATION"
+    "0": "Select a category",
+    "1": "Film",
+    "2": "Theater",
+    "3": "TV & Video",
+    "4": "Commercials",
+    "5": "Modelling",
+    "6": "Performing Arts",
+    "7": "Voiceover",
+    "8": "Entertainment Jobs & Crew",
+    "9": "Events & Representation"
   },
   "subCategories": {
     "0": {"name": "Select a subcategory", "parentId": "0"},
@@ -52,5 +52,10 @@
     "37": {"name": "Competitions", "parentId": "9"},
     "38": {"name": "Festivals & Events", "parentId": "9"},
     "39": {"name": "Groups & Membership Companies", "parentId": "9"}
+  },
+  "paymentTypes": {
+    "NOT_PAID": "Not Paid",
+    "EXPENSES_ONLY": "Expenses Only",
+    "PAID": "Paid"
   }
 }

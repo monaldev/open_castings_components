@@ -6,7 +6,7 @@ import {
   List,
   ListItem,
   Subheader,
-  Avatar
+  Avatar,
 } from 'material-ui';
 // import { Scrollbars } from 'react-custom-scrollbars';
 
@@ -28,7 +28,7 @@ export default class BucketViewComponent extends React.Component {
       tree.push({
         name: `${faker.name.firstName()} ${faker.name.lastName()}`,
         avatar: faker.image.avatar(),
-        email: 'test@test.com'
+        email: 'test@test.com',
       });
     }
     return (
@@ -36,12 +36,12 @@ export default class BucketViewComponent extends React.Component {
         style={{
           width: '25%',
           height: '100%',
-          display: 'flex'
+          display: 'flex',
         }}
         containerStyle={{
           flex: 1,
           display: 'flex',
-          flexDirection: 'column'
+          flexDirection: 'column',
         }}
       >
         <div
@@ -50,7 +50,7 @@ export default class BucketViewComponent extends React.Component {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'stretch',
-            alignItems: 'stretch'
+            alignItems: 'stretch',
           }}
         >
           <Subheader>Candidates</Subheader>
@@ -59,7 +59,7 @@ export default class BucketViewComponent extends React.Component {
               position: 'relative',
               width: '100%',
               flex: 1,
-              margin: 0
+              margin: 0,
             }}
           >
             <div
@@ -68,7 +68,7 @@ export default class BucketViewComponent extends React.Component {
                 width: '100%',
                 top: 0,
                 bottom: 0,
-                overflow: 'auto'
+                overflow: 'auto',
               }}
             >
               <List>
