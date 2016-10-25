@@ -64,7 +64,7 @@ class AuditionOverview extends React.Component {
             <Modal.Title>{data.production.name} {data.production.type}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div className="container text-center">
+            <div className="container">
               <div className="col-xs-6 sign-in-modal stuff">
                 <p>
                   Role: {data.role.name}

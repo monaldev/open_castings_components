@@ -4,3 +4,4 @@ export * from './Productions/components';
 export * from './Roles/components';
 export * from './Social/components';
 export * from './Audition/components';
+export * from './Profile/components';

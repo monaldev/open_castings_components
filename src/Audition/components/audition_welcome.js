@@ -86,8 +86,6 @@ class AuditionWelcome extends React.Component {
           </h3>
           <br />
           <Button
-            label = "Take Audition"
-            secondary
             onClick={() => this.setState({ openDialog: true })}
           >Take Audition</Button>
           <Modal
@@ -151,7 +149,6 @@ class AuditionWelcome extends React.Component {
             />
             </OCFormContainer>
             <Button
-              secondary
               onClick={() => this.setState({ openDialog: false })}
             >Continue</Button>
             </Modal.Body>
