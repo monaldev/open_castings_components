@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 
 import { ProfileOverview } from '~/';
-import LoadMuiTheme from '~/.storybook/load_mui_theme';
 
 storiesOf('ProfileOverview', module)
 .addDecorator(story => (

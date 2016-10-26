@@ -1,15 +1,56 @@
 import React from 'react';
-import {
-  CardHeader,
-} from 'material-ui';
+
+const styles = {
+  lineItem: {
+    padding: 16,
+    paddingTop: 0,
+    fontWeight: 500,
+    boxSizing: 'border-box',
+    position: 'relative',
+    whiteSpace: 'nowrap',
+  },
+  lineItemText: {
+    display: 'inline-block',
+    verticalAlign: 'top',
+    whiteSpace: 'normal',
+    paddingRight: 90,
+  },
+  title: {
+    fontSize: 15,
+    display: 'block',
+    color: 'rgba(66, 66, 66, 0.870588)',
+  },
+  subTitle: {
+    fontSize: 14,
+    display: 'block',
+    color: 'rgba(66, 66, 66, 0.541176)',
+  },
+};
 
 const ProfileExperienceItem = ({ data, style }) => (
   <div style={style}>
-    <CardHeader title={data.title} subtitle="TITLE:" />
-    <CardHeader title={data.role} subtitle="ROLE:" />
-    <CardHeader title={data.director} subtitle="DIRECTOR:" />
-    <CardHeader title={data.company} subtitle="COMPANY:" />
-    <CardHeader title={data.location} subtitle="LOCATION:" />
+    <div style={styles.lineItem}>
+      <div style={styles.lineItemText}>
+        <span style={styles.title}>{data.title}</span>
+        <span style={styles.subTitle}>TITLE:</span>
+      </div>
+    </div>
+    <div style={styles.lineItem}>
+      <span style={styles.title}>{data.role}</span>
+      <span style={styles.subTitle}>ROLE:</span>
+    </div>
+    <div style={styles.lineItem}>
+      <span style={styles.title}>{data.director}</span>
+      <span style={styles.subTitle}>DIRECTOR</span>
+    </div>
+    <div style={styles.lineItem}>
+      <span style={styles.title}>{data.company}</span>
+      <span style={styles.subTitle}>COMPANY</span>
+    </div>
+    <div style={styles.lineItem}>
+      <span style={styles.title}>{data.location}</span>
+      <span style={styles.subTitle}>LOCATION</span>
+    </div>
   </div>
 );
 

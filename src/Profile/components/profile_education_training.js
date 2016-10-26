@@ -1,41 +1,26 @@
 import React from 'react';
 import {
-  Card,
-  CardText,
-  CardTitle,
-  Divider,
-} from 'material-ui';
+  Panel,
+} from 'react-bootstrap';
 import ProfileEducationTrainingItem from './profile_education_training_item';
 
 const ProfileEducationTraining = ({
   data,
 }) => (
-  <Card
-    initiallyExpanded
-  >
-    <CardTitle
-      title="Education & Training"
-      actAsExpander
-      showExpandableButton
-    />
-    <Divider />
-    <CardText
-      expandable
-    >
+  <Panel header="Education & Training">
       {
         data.map((item, index) => (
-          <div>
+          <div key={index}>
             <ProfileEducationTrainingItem data={item} />
             {
               index === data.length - 1
               ? undefined
-              : <Divider style={{ margin: '2em 0' }} />
+              : <hr style={{ margin: '2em 0' }} />
             }
           </div>
         ))
       }
-    </CardText>
-  </Card>
+  </Panel>
 );
 ProfileEducationTraining.defaultProps = {
   data: [],

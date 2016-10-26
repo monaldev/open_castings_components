@@ -26,8 +26,7 @@ storiesOf('AuditionOverview', module)
         },
         role: {
           name: '"Yum" Audition',
-          description: 'Casting "Yum," a short horror film about a mysterious  \
-          entity locked away in the attic of a suburban house. General Audition.',
+          description: 'Casting "Yum," a short horror film about a mysterious entity locked away in the attic of a suburban house. General Audition.',
           type: 'Lead',
           ageMin: '20',
           ageMax: '25',

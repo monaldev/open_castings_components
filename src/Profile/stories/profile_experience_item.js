@@ -24,7 +24,6 @@ storiesOf('ProfileExperienceItem', module)
       location: 'Los Angeles',
     };
     const style = {
-      display: 'flex',
       flexWrap: 'wrap',
     };
     const story = (

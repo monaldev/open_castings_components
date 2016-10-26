@@ -86,6 +86,7 @@ class AuditionWelcome extends React.Component {
           </h3>
           <br />
           <Button
+            bsStyle="danger"
             onClick={() => this.setState({ openDialog: true })}
           >Take Audition</Button>
           <Modal
@@ -148,7 +149,7 @@ class AuditionWelcome extends React.Component {
               type="text"
             />
             </OCFormContainer>
-            <Button
+            <Button bsStyle="danger"
               onClick={() => this.setState({ openDialog: false })}
             >Continue</Button>
             </Modal.Body>

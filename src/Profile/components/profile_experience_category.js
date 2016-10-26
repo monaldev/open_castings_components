@@ -1,38 +1,28 @@
 import React from 'react';
 import {
-  Card,
-  CardText,
-  CardTitle,
-  Divider,
-} from 'material-ui';
+  Panel,
+} from 'react-bootstrap';
+
 import ProfileExperienceItem from './profile_experience_item';
 
 const ProfileExperienceCategory = ({
   children,
   categoryName,
 }) => (
-  <Card
-    initiallyExpanded
-  >
-    <CardTitle
-      title={`${categoryName} (${children.length})`}
-      actAsExpander
-      showExpandableButton
-    />
-    <Divider />
-    <CardText
-      expandable
-    >
-      {
-        children.map((item, index) => (
-          <div key={index}>
-            {index >= 1 ? <Divider /> : ''}
-            <ProfileExperienceItem data={item} />
-          </div>
-        ))
-      }
-    </CardText>
-  </Card>
+  <Panel header={`${categoryName} (${children.length})`}>
+    {
+      children.map((item, index) => (
+        <div key={index}>
+          <ProfileExperienceItem data={item} />
+          {
+            index === children.length - 1
+            ? undefined
+            : <hr style={{ margin: '2em 0' }} />
+          }
+        </div>
+      ))
+    }
+  </Panel>
 );
 ProfileExperienceCategory.defaultProps = {
   children: [],

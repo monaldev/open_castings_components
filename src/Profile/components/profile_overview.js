@@ -1,54 +1,67 @@
 import React from 'react';
 import {
-  RaisedButton,
-  Divider,
-  CardTitle,
-  CardText,
-} from 'material-ui';
-import Email from 'material-ui/svg-icons/communication/email';
+  Button,
+  Glyphicon,
+} from 'react-bootstrap';
+
 import ProfileJobs from './profile_jobs';
 import { FacebookFollowers, TwitterFollowers } from '../../Social/components';
+
+const styles = {
+  actorName: {
+    fontSize: '24px',
+    color: 'rgba(66, 66, 66, 0.870588)',
+    display: 'block',
+    lineHeight: '36px',
+  },
+  actorHeader: {
+    padding: '16px',
+    position: 'relative',
+  },
+  actorJobs: {
+    padding: '16',
+    paddingTop: '0',
+    fontSize: '14px',
+    color: 'rgb(66, 66, 66)',
+  },
+};
 
 const ProfileOverview = ({
   data,
 }) => (
   <div>
-    <CardTitle
-      title={`${data.fName} ${data.lName}`}
-    />
-    <CardText
-      style={{
-        paddingTop: '0',
-      }}
-    >
+    <div style={styles.actorHeader}>
+    <span style={styles.actorName}>
+        {`${data.fName} ${data.lName}`}
+      </span>
+    </div>
+    <div style={styles.actorJobs}>
       <ProfileJobs
         data={data.jobs}
       />
       <div>{data.location}</div>
       <div>Nonunion</div>
-      <RaisedButton
-        label={'Contact Me'}
+      <Button
         style={{
           marginTop: '1em',
         }}
-        secondary
-        icon={<Email />}
-      />
-    </CardText>
-    <Divider
+      ><Glyphicon glyph="envelope" /> Contact Me</Button>
+    </div>
+    <hr
       style={{
         width: '90%',
         margin: '0 0',
       }}
     />
-    <CardText
+    <div
       style={{
         display: 'flex',
+        padding: '16px',
       }}
     >
       <FacebookFollowers profileId={data.socialProfiles.facebook} />
       <TwitterFollowers profileId={data.socialProfiles.twitter} />
-    </CardText>
+    </div>
   </div>
 );
 ProfileOverview.defaultProps = {

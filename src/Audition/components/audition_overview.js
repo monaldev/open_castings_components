@@ -53,43 +53,65 @@ class AuditionOverview extends React.Component {
             width="100%"
           />
           <Button
+            style = { { width: '100%' } }
             onClick={() => this.setState({ openDialog: true })}
           >See Casting Details</Button>
-          <Button>Continue</Button>
+          <Button bsStyle="danger">Continue</Button>
           <Modal
             show={this.state.openDialog}
             onHide={close}
           >
           <Modal.Header closeButton>
-            <Modal.Title>{data.production.name} {data.production.type}</Modal.Title>
+            <Modal.Title>
+              <span style={ { display: 'block' } }>{data.production.name}</span>
+              <span style = {
+                {
+                  fontSize: '14px',
+                  color: 'rgba(66, 66, 66, 0.541176)',
+                  display: 'block',
+                }
+              }
+              >
+                {data.production.type}
+              </span>
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div className="container">
-              <div className="col-xs-6 sign-in-modal stuff">
-                <p>
-                  Role: {data.role.name}
-                </p>
-                <p>
-                  Role Type: {data.role.type}
-                </p>
-                <p>
-                  Description: {data.role.description}
-                </p>
-                <p>
-                  Ages: {data.role.ageMin} - {data.role.ageMax}
-                </p>
-                <p>
-                  Ethnicity: {data.role.ethnicity}
-                </p>
-                <p>
-                  Gender: {data.role.gender}
-                </p>
-                <p>
-                  Location: {data.production.location}
-                </p>
-                <p>
-                  Compensation Details: {data.role.compensationDetails}
-                </p>
+            <div style = {
+              {
+                fontSize: '16px',
+                color: 'rgba(66, 66, 66, 0.6)',
+                padding: '0px 24px 24px',
+              }
+            }
+            >
+              <div className="container">
+                <div className="col-xs-6 sign-in-modal stuff">
+                  <p>
+                    Role: {data.role.name}
+                  </p>
+                  <p>
+                    Role Type: {data.role.type}
+                  </p>
+                  <p>
+                    Description: {data.role.description}
+                  </p>
+                  <p>
+                    Ages: {data.role.ageMin} - {data.role.ageMax}
+                  </p>
+                  <p>
+                    Ethnicity: {data.role.ethnicity}
+                  </p>
+                  <p>
+                    Gender: {data.role.gender}
+                  </p>
+                  <p>
+                    Location: {data.production.location}
+                  </p>
+                  <p>
+                    Compensation Details: {data.role.compensationDetails}
+                  </p>
+                </div>
               </div>
             </div>
           </Modal.Body>
